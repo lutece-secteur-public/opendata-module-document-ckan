@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?><plug-in>
+    
+    <!-- Plugin informations -->
+    <name>document-ckan</name>
+    <class>fr.paris.lutece.portal.service.plugin.PluginDefaultImplementation</class>
+    <version>1.0.0</version>
+    <documentation/>
+    <installation/>
+    <changes/>
+    <user-guide/>
+    <description>module.document.ckan.module.description</description>
+    <provider>module.document.ckan.module.provider</provider>
+    <provider-url>http://lutece.paris.fr</provider-url>
+    <icon-url>images/admin/skin/plugins/document/modules/ckan/document.png</icon-url>
+    <copyright>Copyright 2001-2010 Mairie de Paris</copyright>
+    <db-pool-required>0</db-pool-required>
+	
+</plug-in>
