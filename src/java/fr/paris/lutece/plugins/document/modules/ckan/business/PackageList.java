@@ -15,7 +15,7 @@ public class PackageList
 {
     private String _strHelp;
     private boolean _bSuccess;
-    private List<String> _listResult = new ArrayList<String>();
+    private List<String> _listResult;
 
     /**
      * @return the _strHelp

@@ -36,9 +36,14 @@ package fr.paris.lutece.plugins.document.modules.ckan.rs;
 import fr.paris.lutece.plugins.document.business.Document;
 import fr.paris.lutece.plugins.document.business.DocumentHome;
 import fr.paris.lutece.plugins.document.modules.ckan.business.PackageList;
+import fr.paris.lutece.plugins.document.modules.ckan.business.PackageResource;
+import fr.paris.lutece.plugins.document.modules.ckan.business.PackageShow;
+import fr.paris.lutece.plugins.document.modules.ckan.business.PackageShowResult;
 import fr.paris.lutece.plugins.document.modules.ckan.service.MapperService;
 import fr.paris.lutece.plugins.document.service.DocumentPlugin;
 import fr.paris.lutece.plugins.rest.service.RestConstants;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -49,28 +54,60 @@ import javax.ws.rs.core.MediaType;
  *
  * @author levy
  */
-@Path( RestConstants.BASE_PATH + DocumentPlugin.PLUGIN_NAME + Constants.PATH_CKAN )
-
+@Path(RestConstants.BASE_PATH + DocumentPlugin.PLUGIN_NAME + Constants.PATH_CKAN)
 public class CkanRest
 {
+
     /**
      * Get document spaces by id user
+     *
      * @param strIdUser the id user
      * @return the xml of spaces
      */
     @GET
-    @Path( Constants.PATH_GET_PACKAGE_LIST )
-    @Produces( MediaType.APPLICATION_JSON )
-    public String getPackageList(  )
+    @Path(Constants.PATH_GET_PACKAGE_LIST)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getPackageList()
     {
-        PackageList  pl = new PackageList();
-        pl.setHelp( "Return a list of the names of the site's datasets (packages)");
+        PackageList pl = new PackageList();
+        pl.setHelp("Return a list of the names of the site's datasets (packages)");
         pl.setSuccess(true);
-        for( Document doc : DocumentHome.findBySpaceKey( 6 ))
+        List<String> listResults = new ArrayList<String>();
+        for (Document doc : DocumentHome.findBySpaceKey(6))
         {
-            pl.getResult().add( doc.getTitle());
+            listResults.add("" + doc.getId() + "-" + doc.getSummary());
         }
+        pl.setResult(listResults);
         return MapperService.getJson(pl);
     }
     
+    @GET
+    @Path(Constants.PATH_GET_PACKAGE_SHOW)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getPackageShow(@PathParam(Constants.PARAMETER_ID) String strIdPackage)
+    {
+        PackageShow ps = new PackageShow();
+        ps.setHelp("Return the metadata of a dataset (package) and its resources.\\n\\n :param id: the id or name of the dataset\\n");
+        ps.setSuccess(true);
+        PackageShowResult psr = new PackageShowResult();
+        psr.setAuthor("Mairie de Paris");
+        psr.setMaintainer("Mairie de Paris");
+        psr.setState("active");
+        psr.setType("dataset");
+        
+        List<PackageResource> listResources = new ArrayList<PackageResource>();
+        
+        for (int i = 0; i < 5; i++)
+        {
+            PackageResource pr = new PackageResource();
+            pr.setFormat("CSV");
+            pr.setMimetype("text/csv");
+            listResources.add(pr);
+        }
+        psr.setResources(listResources);
+        ps.setResult(psr);
+        return MapperService.getJson(ps);
+        
+        
+    }
 }

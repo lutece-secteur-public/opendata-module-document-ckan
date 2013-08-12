@@ -1,40 +1,50 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<parent>
-		<artifactId>lutece-plugins-pom</artifactId>
-		<groupId>fr.paris.lutece.plugins</groupId>
-		<version>3.5</version>
-	</parent>
+    <parent>
+        <artifactId>lutece-plugins-pom</artifactId>
+        <groupId>fr.paris.lutece.plugins</groupId>
+        <version>3.5</version>
+    </parent>
 
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>fr.paris.lutece.plugins</groupId>
-	<artifactId>module-document-ckan</artifactId>
-	<packaging>lutece-plugin</packaging>
-	<version>1.0.0-SNAPSHOT</version>
-	<name>Lutece document ckan module</name>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>fr.paris.lutece.plugins</groupId>
+    <artifactId>module-document-ckan</artifactId>
+    <packaging>lutece-plugin</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>Lutece document ckan module</name>
 	
-	<repositories>
-	<repository>
-			<id>lutece</id>
-			<name>luteceRepository</name>
-			<url>http://dev.lutece.paris.fr/maven_repository</url>
-			<layout>default</layout>
-		</repository>
-	</repositories>	
+    <repositories>
+        <repository>
+            <id>lutece</id>
+            <name>luteceRepository</name>
+            <url>http://dev.lutece.paris.fr/maven_repository</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>	
 	
-	<dependencies>
-		<dependency>
-			<artifactId>plugin-document</artifactId>
-			<groupId>fr.paris.lutece.plugins</groupId>
-			<version>[3.0.1-SNAPSHOT,4.0.0-SNAPSHOT)</version>
-			<type>lutece-plugin</type>
-		</dependency>
-		<dependency>
-			<artifactId>plugin-rest</artifactId>
-			<groupId>fr.paris.lutece.plugins</groupId>
-			<version>[2.1.0-SNAPSHOT,4.0.0-SNAPSHOT)</version>
-			<type>lutece-plugin</type>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <artifactId>plugin-document</artifactId>
+            <groupId>fr.paris.lutece.plugins</groupId>
+            <version>[3.0.1-SNAPSHOT,4.0.0-SNAPSHOT)</version>
+            <type>lutece-plugin</type>
+        </dependency>
+        <dependency>
+            <artifactId>plugin-rest</artifactId>
+            <groupId>fr.paris.lutece.plugins</groupId>
+            <version>[2.1.0-SNAPSHOT,4.0.0-SNAPSHOT)</version>
+            <type>lutece-plugin</type>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.9.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.12</version>
+        </dependency>
+    </dependencies>
 
     <scm>
         <connection>scm:svn:http://dev.lutece.paris.fr/svn/lutece/portal/trunk/plugins/cms/module-document-ckan</connection>
@@ -43,9 +53,9 @@
     </scm>
     
     <properties>
-		<componentName>document-ckan</componentName>
-		<jiraProjectName>DOCUMENTCKAN</jiraProjectName>
-		<jiraComponentId>10600</jiraComponentId>
-	</properties>
+        <componentName>document-ckan</componentName>
+        <jiraProjectName>DOCUMENTCKAN</jiraProjectName>
+        <jiraComponentId>10600</jiraComponentId>
+    </properties>
 
 </project>
