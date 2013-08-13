@@ -31,68 +31,43 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.document.modules.ckan.service;
+package fr.paris.lutece.plugins.document.modules.ckan.rs;
 
-import fr.paris.lutece.portal.service.util.AppLogService;
+import fr.paris.lutece.test.LuteceTestCase;
 
-import org.codehaus.jackson.map.ObjectMapper;
-
-import java.io.StringWriter;
+import org.junit.Test;
 
 
 /**
- * Mapper Service
+ *
+ * @author levy
  */
-public final class MapperService
+public class CkanRestTest extends LuteceTestCase
 {
-    private static ObjectMapper _mapper = new ObjectMapper(  );
-
-    /** Private constructor */
-    private MapperService(  )
+    /**
+     * Test of getPackageList method, of class CkanRest.
+     */
+    @Test
+    public void testGetPackageList(  )
     {
+        System.out.println( "getPackageList" );
+
+        CkanRest instance = new CkanRest(  );
+        String result = instance.getPackageList(  );
+        System.out.println( result );
     }
 
     /**
-     * Transform the model into a JSON String
-     * @param model The model
-     * @return A JSON String
+     * Test of getPackageShow method, of class CkanRest.
      */
-    public static <T> String getJson( T bean )
+    @Test
+    public void testGetPackageShow(  )
     {
-        StringWriter sw = new StringWriter(  );
+        System.out.println( "getPackageShow" );
 
-        try
-        {
-            _mapper.writeValue( sw, bean );
-        }
-        catch ( Exception ex )
-        {
-            AppLogService.error( "Error while writing JSON " + ex.getMessage(  ), ex );
-        }
-
-        return sw.toString(  );
-    }
-
-    /**
-     * Read a JSON String to fill a model
-     * @param <T> The class of the bean
-     * @param strJson The JSON String
-     * @param clazz The class of the bean
-     * @return The model
-     */
-    public static <T> T readJson( String strJson, Class<T> clazz )
-    {
-        try
-        {
-            T object = _mapper.readValue( strJson, clazz );
-
-            return object;
-        }
-        catch ( Exception ex )
-        {
-            AppLogService.error( "Error while reading JSON " + ex.getMessage(  ) + "JSON = " + strJson, ex );
-        }
-
-        return null;
+        String strIdPackage = "29-Liste des batiments administratifs";
+        CkanRest instance = new CkanRest(  );
+        String result = instance.getPackageShow( strIdPackage );
+        System.out.println( result );
     }
 }

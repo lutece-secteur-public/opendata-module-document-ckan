@@ -1,0 +1,76 @@
+
+<download>
+    <document-id>29</document-id>
+    <document-title><![CDATA[Liste des batiments administratifs]]></document-title>
+    <document-summary><![CDATA[Ce jeux de données contient l'ensemble des bâtiments administratifs de notre ville.]]></document-summary>
+    <document-is-commentable>1</document-is-commentable>
+    <document-date-begin></document-date-begin>
+    <document-date-end></document-date-end>
+    <document-categories></document-categories>
+    <download-title_en>Administrative building list</download-title_en>
+    <download-summary_en>This is a list of administrative building.</download-summary_en>
+    <download-date_publication>01/06/2012</download-date_publication>
+    <download-date_maj></download-date_maj>
+    <download-theme>Urbanisme</download-theme>
+    <download-theme_en>Urban planning</download-theme_en>
+    <download-description>Les bâtiments administratifs correspondent aux bâtiments appartenant à la localité. </download-description>
+    <download-description_en>Administrative building is building owned to the city.</download-description_en>
+    <download-description2><![CDATA[Pour tous usage.]]></download-description2>
+    <download-description2_en><![CDATA[For all use.]]></download-description2_en>
+    <download-tags>Administratif</download-tags>
+    <download-tags_en>Administrative</download-tags_en>
+    <download-periode_couverte>2012</download-periode_couverte>
+    <download-periode_couverte_en>2012</download-periode_couverte_en>
+    <download-frequence_maj>annuelle</download-frequence_maj>
+    <download-frequence_maj_en>yearly</download-frequence_maj_en>
+    <download-format1>TXT</download-format1>
+    <download-fichier>
+        <file-resource>
+            <resource-document-id>29</resource-document-id>
+            <resource-attribute-id>64</resource-attribute-id>
+            <resource-content-type>text/plain</resource-content-type>
+        </file-resource>
+        <file-size>129</file-size>
+    </download-fichier>
+    <download-url_1><![CDATA[]]></download-url_1>
+    <download-format2> </download-format2>
+    <download-fichier_2></download-fichier_2>
+    <download-url_2><![CDATA[]]></download-url_2>
+    <download-format3> </download-format3>
+    <download-fichier_3></download-fichier_3>
+    <download-url_3></download-url_3>
+    <download-format4> </download-format4>
+    <download-fichier4></download-fichier4>
+    <download-url_4><![CDATA[]]></download-url_4>
+    <download-info_complementaires></download-info_complementaires>
+    <download-info_complementaires_en></download-info_complementaires_en>
+    <download-validateur1>Gaetan Ballanger</download-validateur1>
+    <download-validateur1_en>Gaetan Ballanger</download-validateur1_en>
+    <download-validateur2></download-validateur2>
+    <download-validateur2_en></download-validateur2_en>
+    <download-type_diffusion>Publique</download-type_diffusion>
+    <download-type_diffusion_en>Public</download-type_diffusion_en>
+    <download-valider_cgu>oui</download-valider_cgu>
+    <download-valider_user>non</download-valider_user>
+    <download-licence_ville>oui</download-licence_ville>
+    <download-traitements>non</download-traitements>
+    <download-traitements_detail></download-traitements_detail>
+    <download-traitements_detail_en></download-traitements_detail_en>
+    <download-periode_autorisee_deb></download-periode_autorisee_deb>
+    <download-periode_autorisee_fin></download-periode_autorisee_fin>
+    <download-couverture_geo></download-couverture_geo>
+    <download-couverture_geo_en></download-couverture_geo_en>
+    <download-granularite_geo></download-granularite_geo>
+    <download-granularite_geo_en></download-granularite_geo_en>
+    <download-contact_responsable_origine_download></download-contact_responsable_origine_download>
+    <download-contact_original_releaser_download></download-contact_original_releaser_download>
+    <download-contact_responsable_actuelle_download></download-contact_responsable_actuelle_download>
+    <download-contact_actual_releaser_download></download-contact_actual_releaser_download>
+    <download-application_name></download-application_name>
+    <download-application_name_en></download-application_name_en>
+    <download-extraction_mode>Manuelle</download-extraction_mode>
+    <download-extraction_mode_en>Manual</download-extraction_mode_en>
+    <download-volumetrie></download-volumetrie>
+    <download-dico><![CDATA[]]></download-dico>
+    <download-dico_en><![CDATA[]]></download-dico_en>
+</download>

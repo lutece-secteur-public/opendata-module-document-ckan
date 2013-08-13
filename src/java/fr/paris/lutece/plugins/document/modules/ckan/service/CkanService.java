@@ -33,66 +33,67 @@
  */
 package fr.paris.lutece.plugins.document.modules.ckan.service;
 
+import fr.paris.lutece.plugins.document.business.Document;
+import fr.paris.lutece.plugins.document.modules.ckan.business.PackageOrganization;
+import fr.paris.lutece.plugins.document.modules.ckan.business.PackageShowResult;
 import fr.paris.lutece.portal.service.util.AppLogService;
 
-import org.codehaus.jackson.map.ObjectMapper;
-
-import java.io.StringWriter;
+import java.util.Map;
 
 
 /**
- * Mapper Service
+ *
+ * @author levy
  */
-public final class MapperService
+public class CkanService
 {
-    private static ObjectMapper _mapper = new ObjectMapper(  );
+    public static final String NOT_FOUND = "not found";
+    private Map<String, String> _mappings;
+    private Map<String, String> _defaults;
 
-    /** Private constructor */
-    private MapperService(  )
+    public void setMappings( Map mappings )
     {
+        _mappings = mappings;
     }
 
-    /**
-     * Transform the model into a JSON String
-     * @param model The model
-     * @return A JSON String
-     */
-    public static <T> String getJson( T bean )
+    public void setDefaults( Map defaults )
     {
-        StringWriter sw = new StringWriter(  );
-
-        try
-        {
-            _mapper.writeValue( sw, bean );
-        }
-        catch ( Exception ex )
-        {
-            AppLogService.error( "Error while writing JSON " + ex.getMessage(  ), ex );
-        }
-
-        return sw.toString(  );
+        _defaults = defaults;
     }
 
-    /**
-     * Read a JSON String to fill a model
-     * @param <T> The class of the bean
-     * @param strJson The JSON String
-     * @param clazz The class of the bean
-     * @return The model
-     */
-    public static <T> T readJson( String strJson, Class<T> clazz )
+    public String getMapping( String strKey )
     {
-        try
-        {
-            T object = _mapper.readValue( strJson, clazz );
+        String strMapping = _mappings.get( strKey );
 
-            return object;
-        }
-        catch ( Exception ex )
+        if ( strMapping != null )
         {
-            AppLogService.error( "Error while reading JSON " + ex.getMessage(  ) + "JSON = " + strJson, ex );
+            return strMapping;
         }
 
-        return null;
+        AppLogService.info( "CKAN Mapping not found for key " + strKey );
+
+        return "";
     }
+
+    public String getDefault( String strKey )
+    {
+        String strDefault = _defaults.get( strKey );
+
+        if ( strDefault != null )
+        {
+            return strDefault;
+        }
+
+        AppLogService.info( "CKAN default not found for key " + strKey );
+
+        return "";
+    }
+    
+    public static String getNameId( Document doc )
+    {
+        String strID = "" + doc.getId(  ) + "-" + doc.getSummary(  );
+
+        return strID.replace( " ", "_" );
+    }
+
 }

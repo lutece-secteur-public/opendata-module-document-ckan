@@ -11,8 +11,8 @@
     <description>module.document.ckan.module.description</description>
     <provider>module.document.ckan.module.provider</provider>
     <provider-url>http://lutece.paris.fr</provider-url>
-    <icon-url>images/admin/skin/plugins/document/modules/ckan/document.png</icon-url>
-    <copyright>Copyright 2001-2010 Mairie de Paris</copyright>
+    <icon-url>images/admin/skin/plugins/document/modules/ckan/ckan.png</icon-url>
+    <copyright>Copyright 2001-2013 Mairie de Paris</copyright>
     <db-pool-required>0</db-pool-required>
 	
 </plug-in>

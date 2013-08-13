@@ -6,4 +6,35 @@
     <!-- REST -->
     <bean id="document-ckan.ckanRest" class="fr.paris.lutece.plugins.document.modules.ckan.rs.CkanRest" />
     
+    <bean id="document-ckan.ckanService" class="fr.paris.lutece.plugins.document.modules.ckan.service.CkanService">
+        <property name="mappings">
+            <map>
+                <entry key="id" value="document-id"/>
+                <entry key="title" value="document-title"/>
+                <entry key="resource-format-1" value="download-format1" />
+                <entry key="resource-format-2" value="download-format2" />
+                <entry key="resource-format-3" value="download-format3" />
+                <entry key="resource-format-4" value="download-format4" />
+            </map>
+        </property>
+        <property name="defaults">
+            <map>
+                <entry key="author" value="Mairie de Paris"/>
+                <entry key="author_email" value="opendata@paris.fr"/>
+                <entry key="state" value="active"/>
+                <entry key="version" value="1.0"/>
+                <entry key="type" value="dataset"/>
+                <entry key="notes" value="notes"/>
+                <entry key="url" value="http://opendata.paris.fr"/>
+                <entry key="organization-id" value="1" />
+                <entry key="organization-title" value="Mairie de Paris" />
+                <entry key="organization-name" value="mairie-de-paris" />
+                <entry key="organization-description" value="Mairie de Paris" />
+                <entry key="organization-type" value="organization" />
+                <entry key="organization-state" value="active" />
+                <entry key="organization-approval-status" value="approved" />
+            </map>
+        </property>
+    </bean>
+    
 </beans>
