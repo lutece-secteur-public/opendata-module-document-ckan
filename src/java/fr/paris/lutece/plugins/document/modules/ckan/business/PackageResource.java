@@ -35,26 +35,25 @@ package fr.paris.lutece.plugins.document.modules.ckan.business;
 
 
 /**
- *
- * @author pierre
+ * Package Resource
  */
 public class PackageResource
 {
-    private String description;
-    private String format;
-    String size;
-    private String mimetype;
-    private String url;
-    private String resource_type;
-    private String created;
-    private String last_modified;
+    private String _strDescription;
+    private String _strFormat;
+    private String _strMimetype;
+    private String _strUrl;
+    private String _strResourceType;
+    private String _strCreated;
+    private String _strLastModified;
+    private String _strSize;
 
     /**
      * @return the description
      */
     public String getDescription(  )
     {
-        return description;
+        return _strDescription;
     }
 
     /**
@@ -62,7 +61,7 @@ public class PackageResource
      */
     public void setDescription( String description )
     {
-        this.description = description;
+        _strDescription = description;
     }
 
     /**
@@ -70,7 +69,7 @@ public class PackageResource
      */
     public String getFormat(  )
     {
-        return format;
+        return _strFormat;
     }
 
     /**
@@ -78,7 +77,7 @@ public class PackageResource
      */
     public void setFormat( String format )
     {
-        this.format = format;
+        _strFormat = format;
     }
 
     /**
@@ -86,7 +85,7 @@ public class PackageResource
      */
     public String getMimetype(  )
     {
-        return mimetype;
+        return _strMimetype;
     }
 
     /**
@@ -94,7 +93,7 @@ public class PackageResource
      */
     public void setMimetype( String mimetype )
     {
-        this.mimetype = mimetype;
+        _strMimetype = mimetype;
     }
 
     /**
@@ -102,7 +101,7 @@ public class PackageResource
      */
     public String getUrl(  )
     {
-        return url;
+        return _strUrl;
     }
 
     /**
@@ -110,7 +109,7 @@ public class PackageResource
      */
     public void setUrl( String url )
     {
-        this.url = url;
+        _strUrl = url;
     }
 
     /**
@@ -118,7 +117,7 @@ public class PackageResource
      */
     public String getResource_type(  )
     {
-        return resource_type;
+        return _strResourceType;
     }
 
     /**
@@ -126,7 +125,7 @@ public class PackageResource
      */
     public void setResource_type( String resource_type )
     {
-        this.resource_type = resource_type;
+        _strResourceType = resource_type;
     }
 
     /**
@@ -134,7 +133,7 @@ public class PackageResource
      */
     public String getCreated(  )
     {
-        return created;
+        return _strCreated;
     }
 
     /**
@@ -142,7 +141,7 @@ public class PackageResource
      */
     public void setCreated( String created )
     {
-        this.created = created;
+        _strCreated = created;
     }
 
     /**
@@ -150,7 +149,7 @@ public class PackageResource
      */
     public String getLast_modified(  )
     {
-        return last_modified;
+        return _strLastModified;
     }
 
     /**
@@ -158,6 +157,22 @@ public class PackageResource
      */
     public void setLast_modified( String last_modified )
     {
-        this.last_modified = last_modified;
+        _strLastModified = last_modified;
+    }
+
+    /**
+     * @return the size
+     */
+    public String getSize()
+    {
+        return _strSize;
+    }
+
+    /**
+     * @param size the size to set
+     */
+    public void setSize(String size)
+    {
+        _strSize = size;
     }
 }

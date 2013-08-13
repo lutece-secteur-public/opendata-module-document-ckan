@@ -15,6 +15,10 @@
                 <entry key="resource-format-2" value="download-format2" />
                 <entry key="resource-format-3" value="download-format3" />
                 <entry key="resource-format-4" value="download-format4" />
+                <entry key="resource-file-1" value="download-fichier" />
+                <entry key="resource-file-2" value="download-fichier_2" />
+                <entry key="resource-file-3" value="download-fichier_3" />
+                <entry key="resource-file-4" value="download-fichier_4" />
             </map>
         </property>
         <property name="defaults">

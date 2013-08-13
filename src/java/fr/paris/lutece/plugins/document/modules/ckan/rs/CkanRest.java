@@ -41,8 +41,8 @@ import fr.paris.lutece.plugins.document.modules.ckan.business.PackageShowResult;
 import fr.paris.lutece.plugins.document.modules.ckan.service.CkanService;
 import fr.paris.lutece.plugins.document.modules.ckan.service.DocumentParser;
 import fr.paris.lutece.plugins.document.modules.ckan.service.MapperService;
-import fr.paris.lutece.plugins.document.service.DocumentPlugin;
 import fr.paris.lutece.plugins.rest.service.RestConstants;
+import fr.paris.lutece.portal.service.util.AppPropertiesService;
 
 import org.xml.sax.SAXException;
 
@@ -57,12 +57,15 @@ import javax.ws.rs.core.MediaType;
 
 
 /**
- *
- * @author levy
+ * Ckan Web services API implementation 
  */
-@Path( RestConstants.BASE_PATH + DocumentPlugin.PLUGIN_NAME + Constants.PATH_CKAN )
+@Path( RestConstants.BASE_PATH + Constants.PATH_CKAN_API )
 public class CkanRest
 {
+    private static final String PROPERTY_HELP_PACKAGE_LIST = "document.ckan.help.package_list";
+    private static final String PROPERTY_HELP_PACKAGE_SHOW = "document.ckan.help.package_show";
+    
+    
     /**
      * Get document spaces by id user
      *
@@ -75,7 +78,7 @@ public class CkanRest
     public String getPackageList(  )
     {
         PackageList pl = new PackageList(  );
-        pl.setHelp( "Return a list of the names of the site's datasets (packages)" );
+        pl.setHelp( AppPropertiesService.getProperty( PROPERTY_HELP_PACKAGE_LIST ) );
         pl.setSuccess( true );
 
         List<String> listResults = new ArrayList<String>(  );
@@ -110,8 +113,7 @@ public class CkanRest
         psr = DocumentParser.parse( doc.getXmlValidatedContent(  ), psr );
 
         PackageShow ps = new PackageShow(  );
-        ps.setHelp( 
-            "Return the metadata of a dataset (package) and its resources.\\n\\n :param id: the id or name of the dataset\\n" );
+        ps.setHelp( AppPropertiesService.getProperty( PROPERTY_HELP_PACKAGE_SHOW ));
         ps.setSuccess( true );
         ps.setResult( psr );
 

@@ -35,13 +35,20 @@ package fr.paris.lutece.plugins.document.modules.ckan.rs;
 
 
 /**
- *
- * @author levy
+ * Constants
  */
-public class Constants
+public final class Constants
 {
-    public static final String PATH_CKAN = "/ckan";
+    
+    public static final String PATH_CKAN_API = "document/ckan";
     public static final String PATH_GET_PACKAGE_LIST = "package_list";
     public static final String PATH_GET_PACKAGE_SHOW = "package_show";
     public static final String PARAMETER_ID = "id";
+    
+    /** private constructor */
+    private Constants()
+    {
+        
+    }
+
 }

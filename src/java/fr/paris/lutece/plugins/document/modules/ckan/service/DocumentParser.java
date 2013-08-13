@@ -48,6 +48,7 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.text.MessageFormat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +110,7 @@ public class DocumentParser
                 {
                     PackageResource pr = new PackageResource(  );
                     pr.setFormat( strFormat );
-                    pr.setMimetype( "text/csv" );
+                    fillResourceInfos( pr, doc, "resource-file-" + i);
                     listResources.add( pr );
                 }
             }
@@ -144,6 +145,58 @@ public class DocumentParser
         }
 
         return _service.getDefault( strKey );
+    }
+    
+    private static void fillResourceInfos( PackageResource pr , Document doc, String strKey )
+    {
+        String strDocumentTag = _service.getMapping( strKey );
+        
+        if ( !strDocumentTag.equals( CkanService.NOT_FOUND ) )
+        {
+            NodeList nList = doc.getElementsByTagName( strDocumentTag );
+            
+            fillResource( pr , nList );
+        }
+    }
+        
+    private static void fillResource( PackageResource pr , NodeList nList )
+    {
+            String strId = "";
+            String strAttributeId = "";
+            for( int i = 0 ; i < nList.getLength() ; i++ )
+            {
+                
+                Node node = nList.item(i);
+                
+                NodeList childs = node.getChildNodes();
+                if( childs.getLength() > 0 )
+                {
+                    fillResource( pr, childs );
+                }
+                
+                if( node.getNodeName().equals("resource-document-id"))
+                {
+                    strId = node.getTextContent();
+                }
+                else if( node.getNodeName().equals("resource-attribute-id"))
+                {
+                    strAttributeId = node.getTextContent();
+                }
+                else if( node.getNodeName().equals("resource-content-type"))
+                {
+                   pr.setMimetype( node.getTextContent() );
+                }
+                else if( node.getNodeName().equals("file-size"))
+                {
+                   pr.setSize( node.getTextContent() );
+                }
+            }
+            
+            if(  (!"".equals( strId )) && (!"".equals( strAttributeId )))
+            {
+                pr.setUrl( MessageFormat.format( _service.getResourceUrlFormat() , strId , strAttributeId ));
+                pr.setResource_type( "file" );
+            }
     }
 
     private static String formatName(String strId, String strTitle)

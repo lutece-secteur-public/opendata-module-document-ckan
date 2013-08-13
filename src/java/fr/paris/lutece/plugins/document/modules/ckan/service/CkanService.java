@@ -37,6 +37,7 @@ import fr.paris.lutece.plugins.document.business.Document;
 import fr.paris.lutece.plugins.document.modules.ckan.business.PackageOrganization;
 import fr.paris.lutece.plugins.document.modules.ckan.business.PackageShowResult;
 import fr.paris.lutece.portal.service.util.AppLogService;
+import fr.paris.lutece.portal.service.util.AppPropertiesService;
 
 import java.util.Map;
 
@@ -47,6 +48,7 @@ import java.util.Map;
  */
 public class CkanService
 {
+    private static final String PROPERTY_RESOURCE_URL_FORMAT = "document-ckan.resourceUrlFormat";
     public static final String NOT_FOUND = "not found";
     private Map<String, String> _mappings;
     private Map<String, String> _defaults;
@@ -59,6 +61,11 @@ public class CkanService
     public void setDefaults( Map defaults )
     {
         _defaults = defaults;
+    }
+    
+    public String getResourceUrlFormat()
+    {
+        return AppPropertiesService.getProperty( PROPERTY_RESOURCE_URL_FORMAT );
     }
 
     public String getMapping( String strKey )
