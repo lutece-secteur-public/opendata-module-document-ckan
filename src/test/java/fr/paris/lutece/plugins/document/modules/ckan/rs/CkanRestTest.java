@@ -36,6 +36,7 @@ package fr.paris.lutece.plugins.document.modules.ckan.rs;
 import fr.paris.lutece.test.LuteceTestCase;
 
 import org.junit.Test;
+import org.xml.sax.SAXException;
 
 
 /**
@@ -61,7 +62,7 @@ public class CkanRestTest extends LuteceTestCase
      * Test of getPackageShow method, of class CkanRest.
      */
     @Test
-    public void testGetPackageShow(  )
+    public void testGetPackageShow(  ) throws SAXException
     {
         System.out.println( "getPackageShow" );
 
