@@ -42,27 +42,27 @@ import java.util.List;
  */
 public class PackageShowResult
 {
-    private String id;
-    private String title;
-    private String name;
-    private String author;
-    private String author_email;
-    private String state;
-    private String version;
-    private String type;
-    private String maintainer;
-    private boolean is_open;
-    private String url;
-    private String notes;
-    private List<PackageResource> resources;
-    private PackageOrganization organization;
+    private String _strId;
+    private String _strTitle;
+    private String _strName;
+    private String _strAuthor;
+    private String _strAuthorEmail;
+    private String _strState;
+    private String _strVersion;
+    private String _strType;
+    private String _strMaintainer;
+    private boolean _bIsOpen;
+    private String _strUrl;
+    private String _strNotes;
+    private List<PackageResource> _resources;
+    private PackageOrganization _organization;
 
     /**
      * @return the id
      */
     public String getId(  )
     {
-        return id;
+        return _strId;
     }
 
     /**
@@ -70,7 +70,7 @@ public class PackageShowResult
      */
     public void setId( String id )
     {
-        this.id = id;
+        _strId = id;
     }
 
     /**
@@ -78,7 +78,7 @@ public class PackageShowResult
      */
     public String getTitle(  )
     {
-        return title;
+        return _strTitle;
     }
 
     /**
@@ -86,7 +86,7 @@ public class PackageShowResult
      */
     public void setTitle( String title )
     {
-        this.title = title;
+        _strTitle = title;
     }
 
     /**
@@ -94,7 +94,7 @@ public class PackageShowResult
      */
     public String getName(  )
     {
-        return name;
+        return _strName;
     }
 
     /**
@@ -102,7 +102,7 @@ public class PackageShowResult
      */
     public void setName( String name )
     {
-        this.name = name;
+        _strName = name;
     }
 
     /**
@@ -110,7 +110,7 @@ public class PackageShowResult
      */
     public String getAuthor(  )
     {
-        return author;
+        return _strAuthor;
     }
 
     /**
@@ -118,7 +118,7 @@ public class PackageShowResult
      */
     public void setAuthor( String author )
     {
-        this.author = author;
+        _strAuthor = author;
     }
 
     /**
@@ -126,7 +126,7 @@ public class PackageShowResult
      */
     public String getAuthor_email(  )
     {
-        return author_email;
+        return _strAuthorEmail;
     }
 
     /**
@@ -134,7 +134,7 @@ public class PackageShowResult
      */
     public void setAuthor_email( String author_email )
     {
-        this.author_email = author_email;
+        _strAuthorEmail = author_email;
     }
 
     /**
@@ -142,7 +142,7 @@ public class PackageShowResult
      */
     public String getState(  )
     {
-        return state;
+        return _strState;
     }
 
     /**
@@ -150,7 +150,7 @@ public class PackageShowResult
      */
     public void setState( String state )
     {
-        this.state = state;
+        _strState = state;
     }
 
     /**
@@ -158,7 +158,7 @@ public class PackageShowResult
      */
     public String getVersion(  )
     {
-        return version;
+        return _strVersion;
     }
 
     /**
@@ -166,7 +166,7 @@ public class PackageShowResult
      */
     public void setVersion( String version )
     {
-        this.version = version;
+        _strVersion = version;
     }
 
     /**
@@ -174,7 +174,7 @@ public class PackageShowResult
      */
     public String getType(  )
     {
-        return type;
+        return _strType;
     }
 
     /**
@@ -182,7 +182,7 @@ public class PackageShowResult
      */
     public void setType( String type )
     {
-        this.type = type;
+        _strType = type;
     }
 
     /**
@@ -190,7 +190,7 @@ public class PackageShowResult
      */
     public String getMaintainer(  )
     {
-        return maintainer;
+        return _strMaintainer;
     }
 
     /**
@@ -198,7 +198,7 @@ public class PackageShowResult
      */
     public void setMaintainer( String maintainer )
     {
-        this.maintainer = maintainer;
+        _strMaintainer = maintainer;
     }
 
     /**
@@ -206,7 +206,7 @@ public class PackageShowResult
      */
     public boolean isIs_open(  )
     {
-        return is_open;
+        return _bIsOpen;
     }
 
     /**
@@ -214,7 +214,7 @@ public class PackageShowResult
      */
     public void setIs_open( boolean is_open )
     {
-        this.is_open = is_open;
+        _bIsOpen = is_open;
     }
 
     /**
@@ -222,7 +222,7 @@ public class PackageShowResult
      */
     public String getUrl(  )
     {
-        return url;
+        return _strUrl;
     }
 
     /**
@@ -230,7 +230,7 @@ public class PackageShowResult
      */
     public void setUrl( String url )
     {
-        this.url = url;
+        _strUrl = url;
     }
 
     /**
@@ -238,7 +238,7 @@ public class PackageShowResult
      */
     public String getNotes(  )
     {
-        return notes;
+        return _strNotes;
     }
 
     /**
@@ -246,7 +246,7 @@ public class PackageShowResult
      */
     public void setNotes( String notes )
     {
-        this.notes = notes;
+        _strNotes = notes;
     }
 
     /**
@@ -254,7 +254,7 @@ public class PackageShowResult
      */
     public List<PackageResource> getResources(  )
     {
-        return resources;
+        return _resources;
     }
 
     /**
@@ -262,7 +262,7 @@ public class PackageShowResult
      */
     public void setResources( List<PackageResource> resources )
     {
-        this.resources = resources;
+        _resources = resources;
     }
 
     /**
@@ -270,7 +270,7 @@ public class PackageShowResult
      */
     public PackageOrganization getOrganization(  )
     {
-        return organization;
+        return _organization;
     }
 
     /**
@@ -278,6 +278,6 @@ public class PackageShowResult
      */
     public void setOrganization( PackageOrganization organization )
     {
-        this.organization = organization;
+        _organization = organization;
     }
 }

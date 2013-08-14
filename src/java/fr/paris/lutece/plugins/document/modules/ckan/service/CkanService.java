@@ -34,8 +34,6 @@
 package fr.paris.lutece.plugins.document.modules.ckan.service;
 
 import fr.paris.lutece.plugins.document.business.Document;
-import fr.paris.lutece.plugins.document.modules.ckan.business.PackageOrganization;
-import fr.paris.lutece.plugins.document.modules.ckan.business.PackageShowResult;
 import fr.paris.lutece.portal.service.util.AppLogService;
 import fr.paris.lutece.portal.service.util.AppPropertiesService;
 
@@ -43,31 +41,48 @@ import java.util.Map;
 
 
 /**
- *
- * @author levy
+ * CkanService
  */
 public class CkanService
 {
-    private static final String PROPERTY_RESOURCE_URL_FORMAT = "document-ckan.resourceUrlFormat";
     public static final String NOT_FOUND = "not found";
+
+    private static final String PROPERTY_RESOURCE_URL_FORMAT = "document-ckan.resourceUrlFormat";
     private Map<String, String> _mappings;
     private Map<String, String> _defaults;
 
+    /**
+     * Sets the mappings (injected)
+     * @param mappings 
+     */
     public void setMappings( Map mappings )
     {
         _mappings = mappings;
     }
-
+    
+    /**
+     * Sets defaults (injected)
+     * @param defaults 
+     */
     public void setDefaults( Map defaults )
     {
         _defaults = defaults;
     }
-    
-    public String getResourceUrlFormat()
+
+    /**
+     * Return the resource URL format
+     * @return the resource URL format 
+     */
+    public String getResourceUrlFormat(  )
     {
         return AppPropertiesService.getProperty( PROPERTY_RESOURCE_URL_FORMAT );
     }
 
+    /**
+     * Get the mapping value for a given key
+     * @param strKey The key
+     * @return The value
+     */
     public String getMapping( String strKey )
     {
         String strMapping = _mappings.get( strKey );
@@ -82,6 +97,11 @@ public class CkanService
         return "";
     }
 
+    /**
+     * Get a default value for a given key
+     * @param strKey The Key
+     * @return The value
+     */
     public String getDefault( String strKey )
     {
         String strDefault = _defaults.get( strKey );
@@ -95,12 +115,16 @@ public class CkanService
 
         return "";
     }
-    
+
+    /**
+     * Build the name ID
+     * @param doc The document
+     * @return The ID
+     */
     public static String getNameId( Document doc )
     {
         String strID = "" + doc.getId(  ) + "-" + doc.getSummary(  );
 
         return strID.replace( " ", "_" );
     }
-
 }

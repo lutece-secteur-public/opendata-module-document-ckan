@@ -1,0 +1,61 @@
+<document>
+    <properties>
+        <title> CKAN Module for Document </title>
+    </properties>
+    <body>
+        <section name="Module CKAN for document">
+            
+            <p>
+                <img src="images/ckan_logo.jpg" />
+            </p>
+            
+            <subsection name="Introduction">
+                <p>
+                    Document plugin, with its dynamic model of document structure, allows
+                    storing datasets to achieve a OpenData site. The advantage using Document is
+                    to extend the model with its own metadata and benefit
+                    other features of the modular Lutece platform: rights management, editorial content, comments / ratings, ...
+                </p>
+                <p>
+                    This document-CKAN module provides an interoperability mechanism exposing these datasets via
+                    a compatible CKAN REST API. This allows a platform using CKAN to
+                    integrate these datasets through the mechanisms of "Harvesting".
+                </p>
+                <p>
+                    For more information on the Open Source platform CKAN data management, please refer to the links on the left.
+                </p>
+            </subsection>
+            <subsection name="Configuration">
+                <p>
+                    In <code> WEB-INF/conf/plugins/document-ckan.properties </code> set:
+                </p>
+                <p>
+                <ul>
+                    <li> the id of the space of Document in which the module could find Datasets </li>
+                    <li> the datasets download URL pattern (the domain and the webapp context are to be modified) </li>
+                </ul>
+                </p>
+                <p>
+                    In <code> WEB-INF/conf/plugins/document-ckan_context.xml </code> you can change:
+                </p>
+                <ul>
+                    <li> the mapping between the data expected by CKAN and tags of your model Dataset model </li>
+                    <li> default values ​​that are not in the document template </li>
+                </ul>
+            </subsection>
+            <subsection name="Usage">
+                <p>
+                    Examples of use:
+                </p>
+                
+<source>
+    <a href="http://dev.lutece.paris.fr/incubator/rest/ckan/api/v3/action/package_list">http://dev.lutece.paris.fr/incubator/rest/ckan/api/v3/action/package_list</a>
+</source>
+<source>
+    <a href="http://dev.lutece.paris.fr/incubator/rest/ckan/api/v3/action/package_show?id=29">http://dev.lutece.paris.fr/incubator/rest/ckan/api/v3/action/package_show?id=29</a>
+</source>                    
+                
+            </subsection>
+        </section>
+    </body>
+</document>

@@ -48,6 +48,7 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.io.StringReader;
+
 import java.text.MessageFormat;
 
 import java.util.ArrayList;
@@ -59,13 +60,19 @@ import javax.xml.parsers.ParserConfigurationException;
 
 
 /**
- *
- * @author levy
+ * DocumentParser
  */
 public class DocumentParser
 {
     private static CkanService _service = SpringContextService.getBean( "document-ckan.ckanService" );
 
+    /**
+     * Parse the XML content of a document
+     * @param strXml The XML
+     * @param psr The PackageShowResult
+     * @return the fulfilled PackageShowResult
+     * @throws SAXException if an error occurs
+     */
     public static PackageShowResult parse( String strXml, PackageShowResult psr )
         throws SAXException
     {
@@ -77,9 +84,10 @@ public class DocumentParser
 
             String strId = getValue( doc, "id" );
             psr.setId( strId );
+
             String strTitle = getValue( doc, "title" );
             psr.setTitle( strTitle );
-            psr.setName( formatName( strId , strTitle ));
+            psr.setName( formatName( strId, strTitle ) );
             psr.setAuthor( getValue( doc, "author" ) );
             psr.setAuthor_email( getValue( doc, "author_email" ) );
             psr.setState( getValue( doc, "state" ) );
@@ -110,7 +118,7 @@ public class DocumentParser
                 {
                     PackageResource pr = new PackageResource(  );
                     pr.setFormat( strFormat );
-                    fillResourceInfos( pr, doc, "resource-file-" + i);
+                    fillResourceInfos( pr, doc, "resource-file-" + i );
                     listResources.add( pr );
                 }
             }
@@ -129,6 +137,12 @@ public class DocumentParser
         return psr;
     }
 
+    /**
+     * Get a value for a given key
+     * @param doc The document
+     * @param strKey The key
+     * @return The value
+     */
     private static String getValue( Document doc, String strKey )
     {
         String strDocumentTag = _service.getMapping( strKey );
@@ -146,61 +160,79 @@ public class DocumentParser
 
         return _service.getDefault( strKey );
     }
-    
-    private static void fillResourceInfos( PackageResource pr , Document doc, String strKey )
+
+    /**
+     * Fill a resource by parsing tags
+     * @param pr The PackageResource
+     * @param doc The document
+     * @param strKey The Key
+     */
+    private static void fillResourceInfos( PackageResource pr, Document doc, String strKey )
     {
         String strDocumentTag = _service.getMapping( strKey );
-        
+
         if ( !strDocumentTag.equals( CkanService.NOT_FOUND ) )
         {
             NodeList nList = doc.getElementsByTagName( strDocumentTag );
-            
-            fillResource( pr , nList );
+
+            fillResource( pr, nList );
         }
     }
-        
-    private static void fillResource( PackageResource pr , NodeList nList )
+
+    /**
+     * Recursive method to find useful tags  
+     * @param pr The PackageResource
+     * @param nList The node list
+     */
+    private static void fillResource( PackageResource pr, NodeList nList )
     {
-            String strId = "";
-            String strAttributeId = "";
-            for( int i = 0 ; i < nList.getLength() ; i++ )
+        String strId = "";
+        String strAttributeId = "";
+
+        for ( int i = 0; i < nList.getLength(  ); i++ )
+        {
+            Node node = nList.item( i );
+
+            NodeList childs = node.getChildNodes(  );
+
+            if ( childs.getLength(  ) > 0 )
             {
-                
-                Node node = nList.item(i);
-                
-                NodeList childs = node.getChildNodes();
-                if( childs.getLength() > 0 )
-                {
-                    fillResource( pr, childs );
-                }
-                
-                if( node.getNodeName().equals("resource-document-id"))
-                {
-                    strId = node.getTextContent();
-                }
-                else if( node.getNodeName().equals("resource-attribute-id"))
-                {
-                    strAttributeId = node.getTextContent();
-                }
-                else if( node.getNodeName().equals("resource-content-type"))
-                {
-                   pr.setMimetype( node.getTextContent() );
-                }
-                else if( node.getNodeName().equals("file-size"))
-                {
-                   pr.setSize( node.getTextContent() );
-                }
+                fillResource( pr, childs );
             }
-            
-            if(  (!"".equals( strId )) && (!"".equals( strAttributeId )))
+
+            if ( node.getNodeName(  ).equals( "resource-document-id" ) )
             {
-                pr.setUrl( MessageFormat.format( _service.getResourceUrlFormat() , strId , strAttributeId ));
-                pr.setResource_type( "file" );
+                strId = node.getTextContent(  );
             }
+            else if ( node.getNodeName(  ).equals( "resource-attribute-id" ) )
+            {
+                strAttributeId = node.getTextContent(  );
+            }
+            else if ( node.getNodeName(  ).equals( "resource-content-type" ) )
+            {
+                pr.setMimetype( node.getTextContent(  ) );
+            }
+            else if ( node.getNodeName(  ).equals( "file-size" ) )
+            {
+                pr.setSize( node.getTextContent(  ) );
+            }
+        }
+
+        if ( ( !"".equals( strId ) ) && ( !"".equals( strAttributeId ) ) )
+        {
+            pr.setUrl( MessageFormat.format( _service.getResourceUrlFormat(  ), strId, strAttributeId ) );
+            pr.setResource_type( "file" );
+        }
     }
 
-    private static String formatName(String strId, String strTitle)
+    /**
+     * Format the field name
+     * @param strId The doc ID
+     * @param strTitle The doc title
+     * @return The Name
+     */
+    private static String formatName( String strId, String strTitle )
     {
-        return (strId + "-" + strTitle).replace( " ", "_" ).toLowerCase();
+        return ( strId + "-" + strTitle ).replace( " ", "_" ).toLowerCase(  );
     }
 }

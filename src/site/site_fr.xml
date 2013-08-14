@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <body>
+        <links>
+            <item name="EN" href="../index.html" />
+        </links>
+        
+        <menu name="Module Document-CKAN">
+            <item name="Accueil" href="index.html"/>
+        </menu>
+        
+        <menu name="Téléchargements" inherit="bottom" >
+            <item name="Versions stables" href="../../../stable_builds/plugins/module-document-ckan/"/>
+            <item name="Nightly builds" href="../../../nightly_builds/plugins/module-document-ckan/" />
+        </menu>
+
+        <menu name="Liens CKAN">
+            <item name="Site officiel CKAN" href="http://ckan.org/" target="_blank"/>
+        </menu>	    
+        
+        <menu ref="reports" />
+    </body>
+</project>

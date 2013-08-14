@@ -59,7 +59,7 @@ public class PackageList
      */
     public void setHelp( String strHelp )
     {
-        this._strHelp = strHelp;
+        _strHelp = strHelp;
     }
 
     /**
@@ -75,7 +75,7 @@ public class PackageList
      */
     public void setSuccess( boolean bSuccess )
     {
-        this._bSuccess = bSuccess;
+        _bSuccess = bSuccess;
     }
 
     /**
@@ -91,6 +91,6 @@ public class PackageList
      */
     public void setResult( List<String> listResult )
     {
-        this._listResult = listResult;
+        _listResult = listResult;
     }
 }

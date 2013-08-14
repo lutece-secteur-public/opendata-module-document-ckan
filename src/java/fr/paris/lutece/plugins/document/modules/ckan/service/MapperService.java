@@ -54,7 +54,8 @@ public final class MapperService
 
     /**
      * Transform the model into a JSON String
-     * @param model The model
+     * @param <T> The bean class
+     * @param bean The bean object
      * @return A JSON String
      */
     public static <T> String getJson( T bean )

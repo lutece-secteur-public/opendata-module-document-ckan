@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <title>Module CKAN pour Document</title>
+    </properties>
+    <body>
+        <section name="Module CKAN pour Document">
+            
+            <p>
+                <img src="images/ckan_logo.jpg" />
+            </p>
+            
+            <subsection name="Introduction">
+                <p>
+                    Le plugin Document, grâce notamment à son modèle dynamique de structure documentaire, permet de
+                    stocker des jeux de données (Datasets) afin de réaliser un site OpenData. L'avantage étant de 
+                    pouvoir étendre son modèle avec ses propres méta-données et de bénéficier 
+                    des autres fonctionnalités modulaires de la plate-forme : gestion de droits, éditorial, commentaires/rating, ... 
+                </p>
+                <p>
+                    Ce module Document-CKAN offre un mécanisme d'interopérabilité exposant ces jeux de données via une
+                    API REST compatible avec celle proposée par CKAN. Ceci permet à une plate-forme utilisant CKAN de 
+                    d'intégrer ces Datasets grâce aux mécanismes de "Harvesting".  
+                </p>
+                <p>
+                    Pour plus d'informations sur la plate-forme Open Source de gestion de données CKAN, veuillez vous référer aux liens sur la gauche. 
+                </p>
+            </subsection>
+            <subsection name="Configuration">
+                <p>
+                    Dans le fichier <code>WEB-INF/conf/plugins/document-ckan.properties</code> définissez :
+                </p>
+                <p>
+                <ul>
+                    <li>l'identifiant de l'espace dans le lequel le module trouvera les Datasets</li>
+                    <li>l'Url de téléchargement des Datasets (le nom de domaine et le context sont à modifier)</li>
+                </ul>
+                </p>
+                <p>
+                    Dans le fichier <code>WEB-INF/conf/plugins/document-ckan_context.xml</code> vous pouvez modifier :
+                </p>
+                <ul>
+                    <li>le mapping entre les données attendues par CKAN et les tags de votre modèle de Dataset</li>
+                    <li>les valeurs par défaut qui ne sont pas dans le modèle de document</li>
+                </ul>
+            </subsection>
+            <subsection name="Usage">
+                <p>
+                    Voici des exemples d'usage :
+                </p>
+                
+<source>
+    <a href="http://dev.lutece.paris.fr/incubator/rest/ckan/api/v3/action/package_list">http://dev.lutece.paris.fr/incubator/rest/ckan/api/v3/action/package_list</a>
+</source>
+<source>
+    <a href="http://dev.lutece.paris.fr/incubator/rest/ckan/api/v3/action/package_show?id=29">http://dev.lutece.paris.fr/incubator/rest/ckan/api/v3/action/package_show?id=29</a>
+</source>                    
+                
+            </subsection>
+        </section>
+    </body>
+</document>
+

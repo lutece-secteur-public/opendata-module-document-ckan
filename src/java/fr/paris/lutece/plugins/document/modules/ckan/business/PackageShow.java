@@ -35,8 +35,7 @@ package fr.paris.lutece.plugins.document.modules.ckan.business;
 
 
 /**
- *
- * @author pierre
+ * PackageShow
  */
 public class PackageShow
 {
@@ -85,7 +84,7 @@ public class PackageShow
     }
 
     /**
-     * @param listResult the _listResult to set
+     * @param result the result to set
      */
     public void setResult( PackageShowResult result )
     {

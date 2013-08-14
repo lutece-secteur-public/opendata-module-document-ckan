@@ -1,31 +1,59 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (c) 2002-2013, Mairie de Paris
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *  1. Redistributions of source code must retain the above copyright notice
+ *     and the following disclaimer.
+ *
+ *  2. Redistributions in binary form must reproduce the above copyright notice
+ *     and the following disclaimer in the documentation and/or other materials
+ *     provided with the distribution.
+ *
+ *  3. Neither the name of 'Mairie de Paris' nor 'Lutece' nor the names of its
+ *     contributors may be used to endorse or promote products derived from
+ *     this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ * License 1.0
  */
 package fr.paris.lutece.plugins.document.modules.ckan.business;
 
 
 /**
- *
- * @author levy
+ * PackageOrganization
  */
 public class PackageOrganization
 {
-    private String id;
-    private String name;
-    private String title;
-    private String type;
-    private String description;
-    private String approval_status;
-    private String state;
-    private boolean is_organisation;
+    private String _strId;
+    private String _strName;
+    private String _strTitle;
+    private String _strType;
+    private String _strDescription;
+    private String _strApprovalStatus;
+    private String _strState;
+    private boolean _strIsOrganisation;
 
     /**
      * @return the id
      */
     public String getId(  )
     {
-        return id;
+        return _strId;
     }
 
     /**
@@ -33,7 +61,7 @@ public class PackageOrganization
      */
     public void setId( String id )
     {
-        this.id = id;
+        _strId = id;
     }
 
     /**
@@ -41,7 +69,7 @@ public class PackageOrganization
      */
     public String getName(  )
     {
-        return name;
+        return _strName;
     }
 
     /**
@@ -49,7 +77,7 @@ public class PackageOrganization
      */
     public void setName( String name )
     {
-        this.name = name;
+        _strName = name;
     }
 
     /**
@@ -57,7 +85,7 @@ public class PackageOrganization
      */
     public String getTitle(  )
     {
-        return title;
+        return _strTitle;
     }
 
     /**
@@ -65,7 +93,7 @@ public class PackageOrganization
      */
     public void setTitle( String title )
     {
-        this.title = title;
+        _strTitle = title;
     }
 
     /**
@@ -73,7 +101,7 @@ public class PackageOrganization
      */
     public String getType(  )
     {
-        return type;
+        return _strType;
     }
 
     /**
@@ -81,7 +109,7 @@ public class PackageOrganization
      */
     public void setType( String type )
     {
-        this.type = type;
+        _strType = type;
     }
 
     /**
@@ -89,7 +117,7 @@ public class PackageOrganization
      */
     public String getDescription(  )
     {
-        return description;
+        return _strDescription;
     }
 
     /**
@@ -97,7 +125,7 @@ public class PackageOrganization
      */
     public void setDescription( String description )
     {
-        this.description = description;
+        _strDescription = description;
     }
 
     /**
@@ -105,7 +133,7 @@ public class PackageOrganization
      */
     public String getApproval_status(  )
     {
-        return approval_status;
+        return _strApprovalStatus;
     }
 
     /**
@@ -113,7 +141,7 @@ public class PackageOrganization
      */
     public void setApproval_status( String approval_status )
     {
-        this.approval_status = approval_status;
+        _strApprovalStatus = approval_status;
     }
 
     /**
@@ -121,7 +149,7 @@ public class PackageOrganization
      */
     public String getState(  )
     {
-        return state;
+        return _strState;
     }
 
     /**
@@ -129,7 +157,7 @@ public class PackageOrganization
      */
     public void setState( String state )
     {
-        this.state = state;
+        _strState = state;
     }
 
     /**
@@ -137,7 +165,7 @@ public class PackageOrganization
      */
     public boolean isIs_organisation(  )
     {
-        return is_organisation;
+        return _strIsOrganisation;
     }
 
     /**
@@ -145,6 +173,6 @@ public class PackageOrganization
      */
     public void setIs_organisation( boolean is_organisation )
     {
-        this.is_organisation = is_organisation;
+        _strIsOrganisation = is_organisation;
     }
 }

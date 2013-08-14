@@ -48,7 +48,6 @@ import java.io.IOException;
  */
 public class DocumentParserTest extends LuteceTestCase
 {
- 
     /**
      * Test of parse method, of class DocumentParser.
      */

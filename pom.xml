@@ -2,7 +2,7 @@
     <parent>
         <artifactId>lutece-plugins-pom</artifactId>
         <groupId>fr.paris.lutece.plugins</groupId>
-        <version>3.5</version>
+        <version>3.6</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -31,7 +31,7 @@
         <dependency>
             <artifactId>plugin-rest</artifactId>
             <groupId>fr.paris.lutece.plugins</groupId>
-            <version>[1.0.0,4.0.0-SNAPSHOT)</version>
+            <version>[1.0.0,)</version>
             <type>lutece-plugin</type>
         </dependency>
         <dependency>
@@ -73,8 +73,8 @@
     </build>
     <properties>
         <componentName>document-ckan</componentName>
-        <jiraProjectName>DOCUMENTCKAN</jiraProjectName>
-        <jiraComponentId>10600</jiraComponentId>
+        <jiraProjectName>DOCMNTCKAN</jiraProjectName>
+        <jiraComponentId>12251</jiraComponentId>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

@@ -57,20 +57,19 @@ import javax.ws.rs.core.MediaType;
 
 
 /**
- * Ckan Web services API implementation 
+ * Ckan Web services API implementation
  */
 @Path( RestConstants.BASE_PATH + Constants.PATH_CKAN_API )
 public class CkanRest
 {
-    private static final String PROPERTY_HELP_PACKAGE_LIST = "document.ckan.help.package_list";
-    private static final String PROPERTY_HELP_PACKAGE_SHOW = "document.ckan.help.package_show";
-    
-    
+    private static final String PROPERTY_HELP_PACKAGE_LIST = "document-ckan.help.package_list";
+    private static final String PROPERTY_HELP_PACKAGE_SHOW = "document-ckan.help.package_show";
+    private static final String PROPERTY_DATASET_SPACE_ID = "document-ckan.datasetSpaceId";
+
     /**
-     * Get document spaces by id user
+     * Get package list
      *
-     * @param strIdUser the id user
-     * @return the xml of spaces
+     * @return the list in JSON format
      */
     @GET
     @Path( Constants.PATH_GET_PACKAGE_LIST )
@@ -82,10 +81,11 @@ public class CkanRest
         pl.setSuccess( true );
 
         List<String> listResults = new ArrayList<String>(  );
+        int nSpaceId = Integer.parseInt( AppPropertiesService.getProperty( PROPERTY_DATASET_SPACE_ID ) );
 
-        for ( Document doc : DocumentHome.findBySpaceKey( 22 ) )
+        for ( Document doc : DocumentHome.findBySpaceKey( nSpaceId ) )
         {
-            listResults.add( CkanService.getNameId(doc) );
+            listResults.add( CkanService.getNameId( doc ) );
         }
 
         pl.setResult( listResults );
@@ -93,6 +93,12 @@ public class CkanRest
         return MapperService.getJson( pl );
     }
 
+    /**
+     * Get a given package
+     * @param strIdPackage The package ID
+     * @return The package data in JSON format
+     * @throws SAXException If an error occurs
+     */
     @GET
     @Path( Constants.PATH_GET_PACKAGE_SHOW )
     @Produces( MediaType.APPLICATION_JSON )
@@ -113,11 +119,10 @@ public class CkanRest
         psr = DocumentParser.parse( doc.getXmlValidatedContent(  ), psr );
 
         PackageShow ps = new PackageShow(  );
-        ps.setHelp( AppPropertiesService.getProperty( PROPERTY_HELP_PACKAGE_SHOW ));
+        ps.setHelp( AppPropertiesService.getProperty( PROPERTY_HELP_PACKAGE_SHOW ) );
         ps.setSuccess( true );
         ps.setResult( psr );
 
         return MapperService.getJson( ps );
     }
-
 }

@@ -163,7 +163,7 @@ public class PackageResource
     /**
      * @return the size
      */
-    public String getSize()
+    public String getSize(  )
     {
         return _strSize;
     }
@@ -171,7 +171,7 @@ public class PackageResource
     /**
      * @param size the size to set
      */
-    public void setSize(String size)
+    public void setSize( String size )
     {
         _strSize = size;
     }
