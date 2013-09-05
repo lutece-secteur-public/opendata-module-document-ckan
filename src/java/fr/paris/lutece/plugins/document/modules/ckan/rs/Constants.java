@@ -39,9 +39,9 @@ package fr.paris.lutece.plugins.document.modules.ckan.rs;
  */
 public final class Constants
 {
-    public static final String PATH_CKAN_API = "ckan/api/v3/action";
-    public static final String PATH_GET_PACKAGE_LIST = "package_list";
-    public static final String PATH_GET_PACKAGE_SHOW = "package_show";
+    public static final String PATH_CKAN_API = "ckan/api";
+    public static final String PATH_GET_PACKAGE_LIST = "/{version}/action/package_list";
+    public static final String PATH_GET_PACKAGE_SHOW = "/{version}/action/package_show";
     public static final String PARAMETER_ID = "id";
 
     /** private constructor */

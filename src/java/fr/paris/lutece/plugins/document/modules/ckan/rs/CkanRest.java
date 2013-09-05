@@ -51,9 +51,11 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import org.apache.log4j.Logger;
 
 
 /**
@@ -65,6 +67,8 @@ public class CkanRest
     private static final String PROPERTY_HELP_PACKAGE_LIST = "document-ckan.help.package_list";
     private static final String PROPERTY_HELP_PACKAGE_SHOW = "document-ckan.help.package_show";
     private static final String PROPERTY_DATASET_SPACE_ID = "document-ckan.datasetSpaceId";
+    
+    private Logger _logger = Logger.getLogger( RestConstants.REST_LOGGER );
 
     /**
      * Get package list
@@ -74,7 +78,23 @@ public class CkanRest
     @GET
     @Path( Constants.PATH_GET_PACKAGE_LIST )
     @Produces( MediaType.APPLICATION_JSON )
-    public String getPackageList(  )
+    public String getPackageList( @PathParam("version") int nVersion )
+    {
+        _logger.debug( "getPackageList" );
+        
+        switch( nVersion )
+        {
+            case 3:
+                return getPackageListV3();
+                
+            default:
+                break;
+        }
+        return wrongApiNumber();
+        
+    }
+
+    private String getPackageListV3()
     {
         PackageList pl = new PackageList(  );
         pl.setHelp( AppPropertiesService.getProperty( PROPERTY_HELP_PACKAGE_LIST ) );
@@ -90,7 +110,7 @@ public class CkanRest
 
         pl.setResult( listResults );
 
-        return MapperService.getJson( pl );
+        return MapperService.getJson( pl );    
     }
 
     /**
@@ -100,11 +120,28 @@ public class CkanRest
      * @throws SAXException If an error occurs
      */
     @GET
-    @Path( Constants.PATH_GET_PACKAGE_SHOW )
+    @Path( "/{version}/action/package_show" )
     @Produces( MediaType.APPLICATION_JSON )
-    public String getPackageShow( @QueryParam( Constants.PARAMETER_ID )
+    public String getPackageShow( @PathParam("version") int nVersion , @QueryParam( Constants.PARAMETER_ID )
     String strIdPackage ) throws SAXException
     {
+           _logger.debug( "getPackageShow" );
+        
+        switch( nVersion )
+        {
+            case 3:
+                return getPackageShowV3( strIdPackage );
+                
+            default:
+                break;
+        }
+        return wrongApiNumber();
+     
+    }
+    
+    private String getPackageShowV3( String strIdPackage ) throws SAXException
+    {
+        _logger.debug( "getPackageShowV3" );
         String strId = strIdPackage;
         int nPos = strIdPackage.indexOf( "-" );
 
@@ -124,5 +161,10 @@ public class CkanRest
         ps.setResult( psr );
 
         return MapperService.getJson( ps );
+    }
+
+    private String wrongApiNumber()
+    {
+        return "Wrong API number";
     }
 }
