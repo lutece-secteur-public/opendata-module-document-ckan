@@ -63,6 +63,9 @@ public class PackageShowResult
     private String _strRevisionTimestamp;
     private List<PackageTag> _listTags;
     private int _nNumTags;
+    private String _strLicenseTitle;
+    private String _strLicenseId;
+    private boolean _bPrivate;
     
 
     /**
@@ -399,5 +402,53 @@ public class PackageShowResult
     public void setNum_tags(int nNumTags)
     {
         _nNumTags = nNumTags;
+    }
+
+    /**
+     * @return the license_title
+     */
+    public String getLicense_title()
+    {
+        return _strLicenseTitle;
+    }
+
+    /**
+     * @param strLicenseTitle the license_title to set
+     */
+    public void setLicense_title(String strLicenseTitle)
+    {
+        _strLicenseTitle = strLicenseTitle;
+    }
+
+    /**
+     * @return the license_id
+     */
+    public String getLicense_id()
+    {
+        return _strLicenseId;
+    }
+
+    /**
+     * @param strLicenseId the license_id to set
+     */
+    public void setLicense_id(String strLicenseId)
+    {
+        _strLicenseId = strLicenseId;
+    }
+
+    /**
+     * @return the _private
+     */
+    public boolean isPrivate()
+    {
+        return _bPrivate;
+    }
+
+    /**
+     * @param bPrivate the _private to set
+     */
+    public void setPrivate(boolean bPrivate)
+    {
+        _bPrivate = bPrivate;
     }
 }

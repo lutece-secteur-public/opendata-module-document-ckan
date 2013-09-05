@@ -106,6 +106,8 @@ public class DocumentParser
             psr.setNotes( getValue( doc, "notes" ) );
             psr.setType( getValue( doc, "type" ) );
             psr.setUrl( getValue( doc, "url" ) );
+            psr.setLicense_id( getValue( doc, "license-id" ) );
+            psr.setLicense_title(getValue( doc, "license-title" ) );
             String strMetadataCreated = convertDateToTimestamp( getValue( doc, "metadata-created" ) , TIMESTAMP_DEFAULT );
             psr.setMetadata_created(  strMetadataCreated );
             String strMetadataModified = convertDateToTimestamp( getValue( doc, "metadata-modified" ) , strMetadataCreated );

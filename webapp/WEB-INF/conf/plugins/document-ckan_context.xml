@@ -27,6 +27,8 @@
         </property>
         <property name="defaults">
             <map>
+                <entry key="license-id" value="ODbL"/>
+                <entry key="license-title" value="Licence ODbL (Open Database License) "/>
                 <entry key="author" value="Mairie de Paris"/>
                 <entry key="author-email" value="opendata@paris.fr"/>
                 <entry key="state" value="active"/>
