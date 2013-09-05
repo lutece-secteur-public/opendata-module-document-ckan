@@ -16,6 +16,7 @@
 
         <menu name="ckan links">
             <item name="CKAN official site" href="http://ckan.org/" target="_blank"/>
+            <item name="Lutece Harvester project" href="https://github.com/etalab/etalab-ckan-harvesters/blob/master/etalabckanharvesters/lutece_paris.py" target="_blank"/>
         </menu>	    
 
         <menu ref="reports" />
