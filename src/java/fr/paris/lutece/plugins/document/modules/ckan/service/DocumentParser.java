@@ -51,8 +51,11 @@ import java.io.IOException;
 import java.io.StringReader;
 
 import java.text.MessageFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -65,7 +68,11 @@ import javax.xml.parsers.ParserConfigurationException;
  */
 public class DocumentParser
 {
+    private static final String TIMESTAMP_DEFAULT = "2000-01-01T00:00:00.000000";
+    
     private static CkanService _service = SpringContextService.getBean( "document-ckan.ckanService" );
+    private static SimpleDateFormat _dateFormaterInput = new SimpleDateFormat( "dd/MM/yyyy" );
+    private static SimpleDateFormat _dateFormaterOutput = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ss.SSS" );
 
     /**
      * Parse the XML content of a document
@@ -90,14 +97,20 @@ public class DocumentParser
             psr.setTitle( strTitle );
             psr.setName( formatName( strId, strTitle ) );
             psr.setAuthor( getValue( doc, "author" ) );
-            psr.setAuthor_email( getValue( doc, "author_email" ) );
+            psr.setAuthor_email( getValue( doc, "author-email" ) );
             psr.setState( getValue( doc, "state" ) );
             psr.setVersion( getValue( doc, "version" ) );
             psr.setMaintainer( getValue( doc, "maintainer" ) );
             psr.setNotes( getValue( doc, "notes" ) );
             psr.setType( getValue( doc, "type" ) );
             psr.setUrl( getValue( doc, "url" ) );
-
+            String strMetadataCreated = convertDateToTimestamp( getValue( doc, "metadata-created" ) , TIMESTAMP_DEFAULT );
+            psr.setMetadata_created(  strMetadataCreated );
+            String strMetadataModified = convertDateToTimestamp( getValue( doc, "metadata-modified" ) , strMetadataCreated );
+            psr.setMetadata_modified( strMetadataModified );
+            psr.setRevision_id( getValue( doc, "revision-id" ) );
+            psr.setRevision_timestamp(getValue( doc, strMetadataModified ) );
+            
             PackageOrganization po = new PackageOrganization(  );
             po.setId( getValue( doc, "organization-id" ) );
             po.setTitle( getValue( doc, "organization-title" ) );
@@ -107,6 +120,10 @@ public class DocumentParser
             po.setIs_organization( true );
             po.setApproval_status( getValue( doc, "organization-approval-status" ) );
             po.setState( getValue( doc, "organization-state" ) );
+            po.setId( getValue( doc, "organization-id" ) );
+            po.setRevision_id( getValue( doc, "organization-revision-id" ) );
+            po.setRevision_timestamp( getValue( doc, "organization-revision-timestamp" ) );
+            po.setCreated( getValue( doc, "organization-revision-timestamp" ) );
             psr.setOrganization( po );
 
             List<PackageResource> listResources = new ArrayList<PackageResource>(  );
@@ -119,12 +136,14 @@ public class DocumentParser
                 {
                     PackageResource pr = new PackageResource(  );
                     pr.setFormat( strFormat );
-                    fillResourceInfos( pr, doc, "resource-file-" + i );
+                    pr.setDescription(strTitle);
+                    fillResourceInfos( pr, doc, "resource-file-" + i, strMetadataCreated );
                     listResources.add( pr );
                 }
             }
 
             psr.setResources( listResources );
+            psr.setNum_resources( listResources.size() );
         }
         catch ( IOException e )
         {
@@ -167,8 +186,9 @@ public class DocumentParser
      * @param pr The PackageResource
      * @param doc The document
      * @param strKey The Key
+     * @param strCreated Creation Timestamp
      */
-    private static void fillResourceInfos( PackageResource pr, Document doc, String strKey )
+    private static void fillResourceInfos( PackageResource pr, Document doc, String strKey, String strCreated )
     {
         String strDocumentTag = _service.getMapping( strKey );
 
@@ -176,7 +196,7 @@ public class DocumentParser
         {
             NodeList nList = doc.getElementsByTagName( strDocumentTag );
 
-            fillResource( pr, nList );
+            fillResource( pr, nList, strCreated );
         }
     }
 
@@ -184,8 +204,9 @@ public class DocumentParser
      * Recursive method to find useful tags  
      * @param pr The PackageResource
      * @param nList The node list
+     * @param strCreated Creation Timestamp
      */
-    private static void fillResource( PackageResource pr, NodeList nList )
+    private static void fillResource( PackageResource pr, NodeList nList, String strCreated )
     {
         String strId = "";
         String strAttributeId = "";
@@ -198,7 +219,7 @@ public class DocumentParser
 
             if ( childs.getLength(  ) > 0 )
             {
-                fillResource( pr, childs );
+                fillResource( pr, childs, strCreated );
             }
 
             if ( node.getNodeName(  ).equals( "resource-document-id" ) )
@@ -223,6 +244,8 @@ public class DocumentParser
         {
             pr.setUrl( MessageFormat.format( _service.getResourceUrlFormat(  ), strId, strAttributeId ) );
             pr.setResource_type( "file" );
+            pr.setId( formatResourceId( strId , strAttributeId ));
+            pr.setCreated( strCreated );
         }
     }
 
@@ -235,5 +258,25 @@ public class DocumentParser
     private static String formatName( String strId, String strTitle )
     {
         return ( strId + "-" + StringUtil.replaceAccent( strTitle ).replace( " ", "_" ).toLowerCase(  ));
+    }
+
+    private static String convertDateToTimestamp( String strDate , String strDefault ) 
+    {
+        String strTimestamp = strDefault;
+        try
+        {
+            Date date = _dateFormaterInput.parse(strDate);
+            strTimestamp = _dateFormaterOutput.format(date);
+        }
+        catch (ParseException e)
+        {
+             AppLogService.error( "Error parsing document : " + e.getMessage(  ), e );
+        }
+        return strTimestamp;
+    }
+
+    private static String formatResourceId(String strId, String strAttributeId)
+    {
+        return strId + ":" + strAttributeId;
     }
 }

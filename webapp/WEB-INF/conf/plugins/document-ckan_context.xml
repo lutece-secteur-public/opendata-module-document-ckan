@@ -11,6 +11,7 @@
             <map>
                 <entry key="id" value="document-id"/>
                 <entry key="title" value="document-title"/>
+                <entry key="notes" value="download-description"/>
                 <entry key="resource-format-1" value="download-format1" />
                 <entry key="resource-format-2" value="download-format2" />
                 <entry key="resource-format-3" value="download-format3" />
@@ -19,16 +20,17 @@
                 <entry key="resource-file-2" value="download-fichier_2" />
                 <entry key="resource-file-3" value="download-fichier_3" />
                 <entry key="resource-file-4" value="download-fichier_4" />
+                <entry key="metadata-created" value="download-date_publication" />
+                <entry key="metadata-modified" value="download-date_maj" />
             </map>
         </property>
         <property name="defaults">
             <map>
                 <entry key="author" value="Mairie de Paris"/>
-                <entry key="author_email" value="opendata@paris.fr"/>
+                <entry key="author-email" value="opendata@paris.fr"/>
                 <entry key="state" value="active"/>
                 <entry key="version" value="1.0"/>
                 <entry key="type" value="dataset"/>
-                <entry key="notes" value="notes"/>
                 <entry key="url" value="http://opendata.paris.fr"/>
                 <entry key="organization-id" value="1" />
                 <entry key="organization-title" value="Mairie de Paris" />
@@ -37,6 +39,10 @@
                 <entry key="organization-type" value="organization" />
                 <entry key="organization-state" value="active" />
                 <entry key="organization-approval-status" value="approved" />
+                <entry key="organization-id" value="1" />
+                <entry key="organization-revision-id" value="1" />
+                <entry key="organization-revision-timestamp" value="2013-01-01T00:00:00.000000" />
+                <entry key="organization-created" value="2013-01-01T00:00:00.000000" />
             </map>
         </property>
     </bean>

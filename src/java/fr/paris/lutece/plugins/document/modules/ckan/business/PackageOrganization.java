@@ -47,6 +47,9 @@ public class PackageOrganization
     private String _strApprovalStatus;
     private String _strState;
     private boolean _strIsOrganization;
+    private String _strCreated;
+    private String _strRevisionId;
+    private String _strRevisionTimestamp;
 
     /**
      * @return the id
@@ -175,4 +178,54 @@ public class PackageOrganization
     {
         _strIsOrganization = is_organization;
     }
+
+    /**
+     * @return the created
+     */
+    public String getCreated()
+    {
+        return _strCreated;
+    }
+
+    /**
+     * @param strCreated the created to set
+     */
+    public void setCreated(String strCreated)
+    {
+        _strCreated = strCreated;
+    }
+
+    /**
+     * @return the revision_id
+     */
+    public String getRevision_id()
+    {
+        return _strRevisionId;
+    }
+
+    /**
+     * @param strRevisionId the revision_id to set
+     */
+    public void setRevision_id(String strRevisionId)
+    {
+        _strRevisionId = strRevisionId;
+    }
+
+    /**
+     * @return the revision_timestamp
+     */
+    public String getRevision_timestamp()
+    {
+        return _strRevisionTimestamp;
+    }
+
+    /**
+     * @param strRevisionTimestamp the revision_timestamp to set
+     */
+    public void setRevision_timestamp(String strRevisionTimestamp)
+    {
+        _strRevisionTimestamp = strRevisionTimestamp;
+    }
+
+
 }

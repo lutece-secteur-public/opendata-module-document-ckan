@@ -56,6 +56,12 @@ public class PackageShowResult
     private String _strNotes;
     private List<PackageResource> _resources;
     private PackageOrganization _organization;
+    private String _strMetadataCreated;
+    private String _strMetadataModified;
+    private int _nNumResources;
+    private String _strRevisionId;
+    private String _strRevisionTimestamp;
+    
 
     /**
      * @return the id
@@ -279,5 +285,85 @@ public class PackageShowResult
     public void setOrganization( PackageOrganization organization )
     {
         _organization = organization;
+    }
+    
+    /**
+     * @return the metadata_created
+     */
+    public String getMetadata_created(  )
+    {
+        return _strMetadataCreated;
+    }
+
+    /**
+     * @param strMetadataCreated the metadata_created to set
+     */
+    public void setMetadata_created( String strMetadataCreated )
+    {
+        _strMetadataCreated = strMetadataCreated;
+    }
+
+    /**
+     * @return the metadata_modified
+     */
+    public String getMetadata_modified(  )
+    {
+        return _strMetadataModified;
+    }
+
+    /**
+     * @param strMetadataModified the metadata_modified to set
+     */
+    public void setMetadata_modified( String strMetadataModified )
+    {
+        _strMetadataModified = strMetadataModified;
+    }
+
+    /**
+     * @return the num_resources
+     */
+    public int getNum_resources()
+    {
+        return _nNumResources;
+    }
+
+    /**
+     * @param nNumResources the num_resources to set
+     */
+    public void setNum_resources(int nNumResources)
+    {
+        _nNumResources = nNumResources;
+    }
+
+    /**
+     * @return the revision_id
+     */
+    public String getRevision_id()
+    {
+        return _strRevisionId;
+    }
+
+    /**
+     * @param strRevisionId the revision_id to set
+     */
+    public void setRevision_id(String strRevisionId)
+    {
+        _strRevisionId = strRevisionId;
+    }
+
+    /**
+     * @return the revision_timestamp
+     */
+    public String getRevision_timestamp()
+    {
+        return _strRevisionTimestamp;
+    }
+
+    /**
+     * @param strRevisionTimestamp the revision_timestamp to set
+     */
+    public void setRevision_timestamp(String strRevisionTimestamp)
+    {
+        _strRevisionTimestamp = strRevisionTimestamp;
     }
 }

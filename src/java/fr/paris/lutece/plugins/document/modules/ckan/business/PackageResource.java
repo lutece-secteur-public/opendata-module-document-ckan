@@ -47,6 +47,9 @@ public class PackageResource
     private String _strCreated;
     private String _strLastModified;
     private String _strSize;
+    private String _strId;
+    private String _strRevisionId;
+    
 
     /**
      * @return the description
@@ -175,4 +178,38 @@ public class PackageResource
     {
         _strSize = size;
     }
+
+    /**
+     * @return the revision_id
+     */
+    public String getRevision_id()
+    {
+        return _strRevisionId;
+    }
+
+    /**
+     * @param strRevisionId the revision_id to set
+     */
+    public void setRevision_id(String strRevisionId)
+    {
+        _strRevisionId = strRevisionId;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId()
+    {
+        return _strId;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id)
+    {
+        this._strId = id;
+    }
+
+
 }
