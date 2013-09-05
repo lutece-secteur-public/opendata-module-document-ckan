@@ -36,6 +36,7 @@ package fr.paris.lutece.plugins.document.modules.ckan.service;
 import fr.paris.lutece.plugins.document.business.Document;
 import fr.paris.lutece.portal.service.util.AppLogService;
 import fr.paris.lutece.portal.service.util.AppPropertiesService;
+import fr.paris.lutece.util.string.StringUtil;
 
 import java.util.Map;
 
@@ -124,6 +125,7 @@ public class CkanService
     public static String getNameId( Document doc )
     {
         String strID = "" + doc.getId(  ) + "-" + doc.getSummary(  );
+        strID = StringUtil.replaceAccent( strID );
 
         return strID.replace( " ", "_" );
     }
