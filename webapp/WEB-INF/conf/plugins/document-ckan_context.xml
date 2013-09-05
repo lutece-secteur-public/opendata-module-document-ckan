@@ -22,6 +22,7 @@
                 <entry key="resource-file-4" value="download-fichier_4" />
                 <entry key="metadata-created" value="download-date_publication" />
                 <entry key="metadata-modified" value="download-date_maj" />
+                <entry key="tags" value="download-tags" />
             </map>
         </property>
         <property name="defaults">
@@ -43,6 +44,7 @@
                 <entry key="organization-revision-id" value="1" />
                 <entry key="organization-revision-timestamp" value="2013-01-01T00:00:00.000000" />
                 <entry key="organization-created" value="2013-01-01T00:00:00.000000" />
+                <entry key="tag-state" value="active" />
             </map>
         </property>
     </bean>

@@ -36,6 +36,7 @@ package fr.paris.lutece.plugins.document.modules.ckan.service;
 import fr.paris.lutece.plugins.document.modules.ckan.business.PackageOrganization;
 import fr.paris.lutece.plugins.document.modules.ckan.business.PackageResource;
 import fr.paris.lutece.plugins.document.modules.ckan.business.PackageShowResult;
+import fr.paris.lutece.plugins.document.modules.ckan.business.PackageTag;
 import fr.paris.lutece.portal.service.spring.SpringContextService;
 import fr.paris.lutece.portal.service.util.AppLogService;
 import fr.paris.lutece.util.string.StringUtil;
@@ -57,6 +58,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -111,6 +113,7 @@ public class DocumentParser
             psr.setRevision_id( getValue( doc, "revision-id" ) );
             psr.setRevision_timestamp(getValue( doc, strMetadataModified ) );
             
+            // Organization parsing
             PackageOrganization po = new PackageOrganization(  );
             po.setId( getValue( doc, "organization-id" ) );
             po.setTitle( getValue( doc, "organization-title" ) );
@@ -126,6 +129,7 @@ public class DocumentParser
             po.setCreated( getValue( doc, "organization-revision-timestamp" ) );
             psr.setOrganization( po );
 
+            // Resources parsing
             List<PackageResource> listResources = new ArrayList<PackageResource>(  );
 
             for ( int i = 1; i < 4; i++ )
@@ -144,6 +148,24 @@ public class DocumentParser
 
             psr.setResources( listResources );
             psr.setNum_resources( listResources.size() );
+            
+            // Tags parsing
+            List<PackageTag> listTags = new ArrayList<PackageTag>();
+            String strTags = getValue( doc, "tags" );
+            StringTokenizer st = new StringTokenizer( strTags );
+            while( st.hasMoreTokens() )
+            {
+                PackageTag tag = new PackageTag();
+                String strName = st.nextToken();
+                tag.setName( strName );
+                tag.setDisplay_name( strName );
+                tag.setRevision_timestamp( strMetadataModified );
+                tag.setState( getValue( doc, "tag-state" ));
+                listTags.add( tag );
+            }
+            psr.setTags( listTags );
+            psr.setNum_tags( listTags.size() );
+            
         }
         catch ( IOException e )
         {
@@ -260,6 +282,12 @@ public class DocumentParser
         return ( strId + "-" + StringUtil.replaceAccent( strTitle ).replace( " ", "_" ).toLowerCase(  ));
     }
 
+    /**
+     * Convert a date to a timestamp
+     * @param strDate The input date
+     * @param strDefault The default value if the conversion failed
+     * @return The timestamp
+     */
     private static String convertDateToTimestamp( String strDate , String strDefault ) 
     {
         String strTimestamp = strDefault;
@@ -275,6 +303,12 @@ public class DocumentParser
         return strTimestamp;
     }
 
+    /**
+     * Format a resource ID
+     * @param strId The dataset id
+     * @param strAttributeId the resource id
+     * @return The ID
+     */
     private static String formatResourceId(String strId, String strAttributeId)
     {
         return strId + ":" + strAttributeId;

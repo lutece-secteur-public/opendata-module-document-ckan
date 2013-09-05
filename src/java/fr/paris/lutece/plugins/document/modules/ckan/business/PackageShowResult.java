@@ -61,6 +61,8 @@ public class PackageShowResult
     private int _nNumResources;
     private String _strRevisionId;
     private String _strRevisionTimestamp;
+    private List<PackageTag> _listTags;
+    private int _nNumTags;
     
 
     /**
@@ -365,5 +367,37 @@ public class PackageShowResult
     public void setRevision_timestamp(String strRevisionTimestamp)
     {
         _strRevisionTimestamp = strRevisionTimestamp;
+    }
+
+    /**
+     * @return the tags
+     */
+    public List<PackageTag> getTags()
+    {
+        return _listTags;
+    }
+
+    /**
+     * @param tags the tags to set
+     */
+    public void setTags(List<PackageTag> tags)
+    {
+        _listTags = tags;
+    }
+
+    /**
+     * @return the num_tags
+     */
+    public int getNum_tags()
+    {
+        return _nNumTags;
+    }
+
+    /**
+     * @param nNumTags the num_tags to set
+     */
+    public void setNum_tags(int nNumTags)
+    {
+        _nNumTags = nNumTags;
     }
 }
