@@ -38,6 +38,7 @@ import fr.paris.lutece.plugins.document.modules.ckan.business.PackageResource;
 import fr.paris.lutece.plugins.document.modules.ckan.business.PackageShowResult;
 import fr.paris.lutece.portal.service.spring.SpringContextService;
 import fr.paris.lutece.portal.service.util.AppLogService;
+import fr.paris.lutece.util.string.StringUtil;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -233,6 +234,6 @@ public class DocumentParser
      */
     private static String formatName( String strId, String strTitle )
     {
-        return ( strId + "-" + strTitle ).replace( " ", "_" ).toLowerCase(  );
+        return ( strId + "-" + StringUtil.replaceAccent( strTitle ).replace( " ", "_" ).toLowerCase(  ));
     }
 }
