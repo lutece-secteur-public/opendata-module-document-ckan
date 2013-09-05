@@ -50,10 +50,10 @@
                 </p>
                 
 <source>
-    <a href="http://dev.lutece.paris.fr/incubator/rest/ckan/api/v3/action/package_list">http://dev.lutece.paris.fr/incubator/rest/ckan/api/v3/action/package_list</a>
+    <a href="http://dev.lutece.paris.fr/incubator/rest/ckan/api/3/action/package_list">http://dev.lutece.paris.fr/incubator/rest/ckan/api/3/action/package_list</a>
 </source>
 <source>
-    <a href="http://dev.lutece.paris.fr/incubator/rest/ckan/api/v3/action/package_show?id=29">http://dev.lutece.paris.fr/incubator/rest/ckan/api/v3/action/package_show?id=29</a>
+    <a href="http://dev.lutece.paris.fr/incubator/rest/ckan/api/3/action/package_show?id=29">http://dev.lutece.paris.fr/incubator/rest/ckan/api/3/action/package_show?id=29</a>
 </source>                    
                 
             </subsection>

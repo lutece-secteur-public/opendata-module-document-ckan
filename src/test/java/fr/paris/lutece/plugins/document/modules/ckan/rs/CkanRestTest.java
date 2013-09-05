@@ -41,8 +41,7 @@ import org.xml.sax.SAXException;
 
 
 /**
- *
- * @author levy
+ * Test REST webservices
  */
 public class CkanRestTest extends LuteceTestCase
 {
@@ -55,7 +54,7 @@ public class CkanRestTest extends LuteceTestCase
         System.out.println( "getPackageList" );
 
         CkanRest instance = new CkanRest(  );
-        String result = instance.getPackageList(  );
+        String result = instance.getPackageList( 3 );
         System.out.println( result );
     }
 
@@ -69,7 +68,7 @@ public class CkanRestTest extends LuteceTestCase
 
         String strIdPackage = "29-Liste des batiments administratifs";
         CkanRest instance = new CkanRest(  );
-        String result = instance.getPackageShow( strIdPackage );
+        String result = instance.getPackageShow( 3 , strIdPackage );
         System.out.println( result );
     }
 }
