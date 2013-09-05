@@ -113,7 +113,7 @@ public class DocumentParser
             String strMetadataModified = convertDateToTimestamp( getValue( doc, "metadata-modified" ) , strMetadataCreated );
             psr.setMetadata_modified( strMetadataModified );
             psr.setRevision_id( getValue( doc, "revision-id" ) );
-            psr.setRevision_timestamp(getValue( doc, strMetadataModified ) );
+            psr.setRevision_timestamp( convertDateToTimestamp( getValue( doc, "revision-timestamp" ) , strMetadataModified ) );
             
             // Organization parsing
             PackageOrganization po = new PackageOrganization(  );
@@ -143,6 +143,8 @@ public class DocumentParser
                     PackageResource pr = new PackageResource(  );
                     pr.setFormat( strFormat );
                     pr.setDescription(strTitle);
+                    pr.setLast_modified( strMetadataModified );
+                    pr.setRevision_id( getValue( doc, "resource-revision-id" ));
                     fillResourceInfos( pr, doc, "resource-file-" + i, strMetadataCreated );
                     listResources.add( pr );
                 }

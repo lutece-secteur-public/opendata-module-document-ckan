@@ -33,6 +33,7 @@
                 <entry key="author-email" value="opendata@paris.fr"/>
                 <entry key="state" value="active"/>
                 <entry key="version" value="1.0"/>
+                <entry key="revision-id" value="latest"/>
                 <entry key="type" value="dataset"/>
                 <entry key="url" value="http://opendata.paris.fr"/>
                 <entry key="organization-id" value="1" />
@@ -43,9 +44,10 @@
                 <entry key="organization-state" value="active" />
                 <entry key="organization-approval-status" value="approved" />
                 <entry key="organization-id" value="1" />
-                <entry key="organization-revision-id" value="1" />
+                <entry key="organization-revision-id" value="latest" />
                 <entry key="organization-revision-timestamp" value="2013-01-01T00:00:00.000000" />
                 <entry key="organization-created" value="2013-01-01T00:00:00.000000" />
+                <entry key="resource-revision-id" value="latest" />
                 <entry key="tag-state" value="active" />
             </map>
         </property>
