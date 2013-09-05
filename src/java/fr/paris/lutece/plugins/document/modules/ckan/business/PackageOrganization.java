@@ -46,7 +46,7 @@ public class PackageOrganization
     private String _strDescription;
     private String _strApprovalStatus;
     private String _strState;
-    private boolean _strIsOrganisation;
+    private boolean _strIsOrganization;
 
     /**
      * @return the id
@@ -161,18 +161,18 @@ public class PackageOrganization
     }
 
     /**
-     * @return the is_organisation
+     * @return the is_organization
      */
-    public boolean isIs_organisation(  )
+    public boolean isIs_organization(  )
     {
-        return _strIsOrganisation;
+        return _strIsOrganization;
     }
 
     /**
-     * @param is_organisation the is_organisation to set
+     * @param is_organization the is_organization to set
      */
-    public void setIs_organisation( boolean is_organisation )
+    public void setIs_organization( boolean is_organization )
     {
-        _strIsOrganisation = is_organisation;
+        _strIsOrganization = is_organization;
     }
 }

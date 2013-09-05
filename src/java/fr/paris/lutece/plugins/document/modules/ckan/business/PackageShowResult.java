@@ -202,19 +202,19 @@ public class PackageShowResult
     }
 
     /**
-     * @return the is_open
+     * @return the isopen
      */
-    public boolean isIs_open(  )
+    public boolean isIsopen(  )
     {
         return _bIsOpen;
     }
 
     /**
-     * @param is_open the is_open to set
+     * @param isopen the isopen to set
      */
-    public void setIs_open( boolean is_open )
+    public void setIsopen( boolean isopen )
     {
-        _bIsOpen = is_open;
+        _bIsOpen = isopen;
     }
 
     /**

@@ -103,7 +103,7 @@ public class DocumentParser
             po.setName( getValue( doc, "organization-name" ) );
             po.setDescription( getValue( doc, "organization-description" ) );
             po.setType( getValue( doc, "organization-type" ) );
-            po.setIs_organisation( true );
+            po.setIs_organization( true );
             po.setApproval_status( getValue( doc, "organization-approval-status" ) );
             po.setState( getValue( doc, "organization-state" ) );
             psr.setOrganization( po );
