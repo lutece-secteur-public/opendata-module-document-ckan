@@ -48,6 +48,7 @@ public class CkanService
 {
     public static final String NOT_FOUND = "not found";
 
+    private static final String PROPERTY_DATASET_URL_FORMAT = "document-ckan.datasetUrlFormat";
     private static final String PROPERTY_RESOURCE_URL_FORMAT = "document-ckan.resourceUrlFormat";
     private Map<String, String> _mappings;
     private Map<String, String> _defaults;
@@ -68,6 +69,15 @@ public class CkanService
     public void setDefaults( Map defaults )
     {
         _defaults = defaults;
+    }
+
+    /**
+     * Return the dataset URL format
+     * @return the dataset URL format 
+     */
+    public String getDatasetUrlFormat(  )
+    {
+        return AppPropertiesService.getProperty( PROPERTY_DATASET_URL_FORMAT );
     }
 
     /**
@@ -124,7 +134,7 @@ public class CkanService
      */
     public static String getNameId( Document doc )
     {
-        String strID = "" + doc.getId(  ) + "-" + doc.getSummary(  );
+        String strID = "" + doc.getId(  ) + "-" + doc.getTitle();
         strID = StringUtil.replaceAccent( strID );
 
         return strID.replace( " ", "_" );

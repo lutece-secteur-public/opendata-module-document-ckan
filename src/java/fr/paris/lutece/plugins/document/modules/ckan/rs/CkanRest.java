@@ -34,21 +34,13 @@
 package fr.paris.lutece.plugins.document.modules.ckan.rs;
 
 import com.sun.jersey.api.Responses;
-import fr.paris.lutece.plugins.document.business.Document;
-import fr.paris.lutece.plugins.document.business.DocumentHome;
-import fr.paris.lutece.plugins.document.modules.ckan.business.PackageList;
-import fr.paris.lutece.plugins.document.modules.ckan.business.PackageShow;
-import fr.paris.lutece.plugins.document.modules.ckan.business.PackageShowResult;
-import fr.paris.lutece.plugins.document.modules.ckan.service.CkanService;
-import fr.paris.lutece.plugins.document.modules.ckan.service.DocumentParser;
+import fr.paris.lutece.plugins.document.modules.ckan.business.WSBase;
 import fr.paris.lutece.plugins.document.modules.ckan.service.MapperService;
+import fr.paris.lutece.plugins.document.modules.ckan.service.PackageServiceV3;
 import fr.paris.lutece.plugins.rest.service.RestConstants;
-import fr.paris.lutece.portal.service.util.AppPropertiesService;
 
 import org.xml.sax.SAXException;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -66,9 +58,6 @@ import org.apache.log4j.Logger;
 @Path( RestConstants.BASE_PATH + Constants.PATH_CKAN_API )
 public class CkanRest
 {
-    private static final String PROPERTY_HELP_PACKAGE_LIST = "document-ckan.help.package_list";
-    private static final String PROPERTY_HELP_PACKAGE_SHOW = "document-ckan.help.package_show";
-    private static final String PROPERTY_DATASET_SPACE_ID = "document-ckan.datasetSpaceId";
     private static final int VERSION_3 = 3;
     
     private Logger _logger = Logger.getLogger( RestConstants.REST_LOGGER );
@@ -103,21 +92,9 @@ public class CkanRest
      */
     private String getPackageListV3()
     {
-        PackageList pl = new PackageList(  );
-        pl.setHelp( AppPropertiesService.getProperty( PROPERTY_HELP_PACKAGE_LIST ) );
-        pl.setSuccess( true );
+        WSBase response = PackageServiceV3.getPackageList(  );
 
-        List<String> listResults = new ArrayList<String>(  );
-        int nSpaceId = Integer.parseInt( AppPropertiesService.getProperty( PROPERTY_DATASET_SPACE_ID ) );
-
-        for ( Document doc : DocumentHome.findBySpaceKey( nSpaceId ) )
-        {
-            listResults.add( CkanService.getNameId( doc ) );
-        }
-
-        pl.setResult( listResults );
-
-        return MapperService.getJson( pl );    
+        return MapperService.getJson( response );    
     }
 
     /**
@@ -163,18 +140,10 @@ public class CkanRest
         {
             strId = strIdPackage.substring( 0, nPos );
         }
+        
+        WSBase response = PackageServiceV3.getPackageShow( strId );
 
-        Document doc = DocumentHome.findByPrimaryKey( Integer.parseInt( strId ) );
-
-        PackageShowResult psr = new PackageShowResult(  );
-        psr = DocumentParser.parse( doc.getXmlValidatedContent(  ), psr );
-
-        PackageShow ps = new PackageShow(  );
-        ps.setHelp( AppPropertiesService.getProperty( PROPERTY_HELP_PACKAGE_SHOW ) );
-        ps.setSuccess( true );
-        ps.setResult( psr );
-
-        return MapperService.getJson( ps );
+        return MapperService.getJson( response );
     }
 
 }    

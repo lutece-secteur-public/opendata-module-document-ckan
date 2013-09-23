@@ -33,61 +33,12 @@
  */
 package fr.paris.lutece.plugins.document.modules.ckan.business;
 
+import java.util.List;
+
 
 /**
- * PackageShow
+ * WSPackageList
  */
-public class PackageShow
+public class WSPackageList extends WSResult<List<String>>
 {
-    private String _strHelp;
-    private boolean _bSuccess;
-    private PackageShowResult _result;
-
-    /**
-    * @return the _strHelp
-    */
-    public String getHelp(  )
-    {
-        return _strHelp;
-    }
-
-    /**
-     * @param strHelp the _strHelp to set
-     */
-    public void setHelp( String strHelp )
-    {
-        this._strHelp = strHelp;
-    }
-
-    /**
-     * @return the _bSuccess
-     */
-    public boolean isSuccess(  )
-    {
-        return _bSuccess;
-    }
-
-    /**
-     * @param bSuccess the _bSuccess to set
-     */
-    public void setSuccess( boolean bSuccess )
-    {
-        this._bSuccess = bSuccess;
-    }
-
-    /**
-     * @return the _listResult
-     */
-    public PackageShowResult getResult(  )
-    {
-        return _result;
-    }
-
-    /**
-     * @param result the result to set
-     */
-    public void setResult( PackageShowResult result )
-    {
-        _result = result;
-    }
 }

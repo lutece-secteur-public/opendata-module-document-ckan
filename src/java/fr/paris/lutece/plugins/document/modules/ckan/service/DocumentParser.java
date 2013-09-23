@@ -83,7 +83,7 @@ public class DocumentParser
      * @return the fulfilled PackageShowResult
      * @throws SAXException if an error occurs
      */
-    public static PackageShowResult parse( String strXml, PackageShowResult psr )
+    public static PackageShowResult parse( PackageShowResult psr, String strXml, int nPortletId )
         throws SAXException
     {
         try
@@ -105,7 +105,7 @@ public class DocumentParser
             psr.setMaintainer( getValue( doc, "maintainer" ) );
             psr.setNotes( getValue( doc, "notes" ) );
             psr.setType( getValue( doc, "type" ) );
-            psr.setUrl( getValue( doc, "url" ) );
+            psr.setUrl( MessageFormat.format( _service.getDatasetUrlFormat(), strId, nPortletId ) );
             psr.setLicense_id( getValue( doc, "license-id" ) );
             psr.setLicense_title(getValue( doc, "license-title" ) );
             String strMetadataCreated = convertDateToTimestamp( getValue( doc, "metadata-created" ) , TIMESTAMP_DEFAULT );
