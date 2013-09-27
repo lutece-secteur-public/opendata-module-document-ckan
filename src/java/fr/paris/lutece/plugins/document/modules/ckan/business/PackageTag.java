@@ -33,6 +33,7 @@
  */
 package fr.paris.lutece.plugins.document.modules.ckan.business;
 
+
 /**
  * Package Tag
  */
@@ -48,7 +49,7 @@ public class PackageTag
     /**
      * @return the vocabulary_id
      */
-    public String getVocabulary_id()
+    public String getVocabulary_id(  )
     {
         return _strVocabularyId;
     }
@@ -56,7 +57,7 @@ public class PackageTag
     /**
      * @param strVocabularyId the vocabulary_id to set
      */
-    public void setVocabulary_id(String strVocabularyId)
+    public void setVocabulary_id( String strVocabularyId )
     {
         _strVocabularyId = strVocabularyId;
     }
@@ -64,7 +65,7 @@ public class PackageTag
     /**
      * @return the display_name
      */
-    public String getDisplay_name()
+    public String getDisplay_name(  )
     {
         return _strDisplayName;
     }
@@ -72,7 +73,7 @@ public class PackageTag
     /**
      * @param strDisplayName the display_name to set
      */
-    public void setDisplay_name(String strDisplayName)
+    public void setDisplay_name( String strDisplayName )
     {
         _strDisplayName = strDisplayName;
     }
@@ -80,7 +81,7 @@ public class PackageTag
     /**
      * @return the name
      */
-    public String getName()
+    public String getName(  )
     {
         return _strName;
     }
@@ -88,7 +89,7 @@ public class PackageTag
     /**
      * @param strName the name to set
      */
-    public void setName(String strName)
+    public void setName( String strName )
     {
         _strName = strName;
     }
@@ -96,7 +97,7 @@ public class PackageTag
     /**
      * @return the revision_timestamp
      */
-    public String getRevision_timestamp()
+    public String getRevision_timestamp(  )
     {
         return _strRevisionTimestamp;
     }
@@ -104,7 +105,7 @@ public class PackageTag
     /**
      * @param strRevisionTimestamp the revision_timestamp to set
      */
-    public void setRevision_timestamp(String strRevisionTimestamp)
+    public void setRevision_timestamp( String strRevisionTimestamp )
     {
         _strRevisionTimestamp = strRevisionTimestamp;
     }
@@ -112,7 +113,7 @@ public class PackageTag
     /**
      * @return the state
      */
-    public String getState()
+    public String getState(  )
     {
         return _strState;
     }
@@ -120,7 +121,7 @@ public class PackageTag
     /**
      * @param strState the state to set
      */
-    public void setState(String strState)
+    public void setState( String strState )
     {
         _strState = strState;
     }
@@ -128,7 +129,7 @@ public class PackageTag
     /**
      * @return the id
      */
-    public String getId()
+    public String getId(  )
     {
         return _strId;
     }
@@ -136,7 +137,7 @@ public class PackageTag
     /**
      * @param strId the id to set
      */
-    public void setId(String strId)
+    public void setId( String strId )
     {
         _strId = strId;
     }

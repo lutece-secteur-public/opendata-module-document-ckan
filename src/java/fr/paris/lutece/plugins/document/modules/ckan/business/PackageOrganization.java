@@ -182,7 +182,7 @@ public class PackageOrganization
     /**
      * @return the created
      */
-    public String getCreated()
+    public String getCreated(  )
     {
         return _strCreated;
     }
@@ -190,7 +190,7 @@ public class PackageOrganization
     /**
      * @param strCreated the created to set
      */
-    public void setCreated(String strCreated)
+    public void setCreated( String strCreated )
     {
         _strCreated = strCreated;
     }
@@ -198,7 +198,7 @@ public class PackageOrganization
     /**
      * @return the revision_id
      */
-    public String getRevision_id()
+    public String getRevision_id(  )
     {
         return _strRevisionId;
     }
@@ -206,7 +206,7 @@ public class PackageOrganization
     /**
      * @param strRevisionId the revision_id to set
      */
-    public void setRevision_id(String strRevisionId)
+    public void setRevision_id( String strRevisionId )
     {
         _strRevisionId = strRevisionId;
     }
@@ -214,7 +214,7 @@ public class PackageOrganization
     /**
      * @return the revision_timestamp
      */
-    public String getRevision_timestamp()
+    public String getRevision_timestamp(  )
     {
         return _strRevisionTimestamp;
     }
@@ -222,10 +222,8 @@ public class PackageOrganization
     /**
      * @param strRevisionTimestamp the revision_timestamp to set
      */
-    public void setRevision_timestamp(String strRevisionTimestamp)
+    public void setRevision_timestamp( String strRevisionTimestamp )
     {
         _strRevisionTimestamp = strRevisionTimestamp;
     }
-
-
 }

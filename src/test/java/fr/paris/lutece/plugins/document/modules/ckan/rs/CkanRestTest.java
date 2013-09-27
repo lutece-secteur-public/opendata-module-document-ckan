@@ -68,7 +68,7 @@ public class CkanRestTest extends LuteceTestCase
 
         String strIdPackage = "29-Liste des batiments administratifs";
         CkanRest instance = new CkanRest(  );
-        String result = instance.getPackageShow( 3 , strIdPackage );
+        String result = instance.getPackageShow( 3, strIdPackage );
         System.out.println( result );
     }
 }

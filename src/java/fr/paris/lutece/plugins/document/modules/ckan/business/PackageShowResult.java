@@ -66,7 +66,6 @@ public class PackageShowResult
     private String _strLicenseTitle;
     private String _strLicenseId;
     private boolean _bPrivate;
-    
 
     /**
      * @return the id
@@ -291,7 +290,7 @@ public class PackageShowResult
     {
         _organization = organization;
     }
-    
+
     /**
      * @return the metadata_created
      */
@@ -327,7 +326,7 @@ public class PackageShowResult
     /**
      * @return the num_resources
      */
-    public int getNum_resources()
+    public int getNum_resources(  )
     {
         return _nNumResources;
     }
@@ -335,7 +334,7 @@ public class PackageShowResult
     /**
      * @param nNumResources the num_resources to set
      */
-    public void setNum_resources(int nNumResources)
+    public void setNum_resources( int nNumResources )
     {
         _nNumResources = nNumResources;
     }
@@ -343,7 +342,7 @@ public class PackageShowResult
     /**
      * @return the revision_id
      */
-    public String getRevision_id()
+    public String getRevision_id(  )
     {
         return _strRevisionId;
     }
@@ -351,7 +350,7 @@ public class PackageShowResult
     /**
      * @param strRevisionId the revision_id to set
      */
-    public void setRevision_id(String strRevisionId)
+    public void setRevision_id( String strRevisionId )
     {
         _strRevisionId = strRevisionId;
     }
@@ -359,7 +358,7 @@ public class PackageShowResult
     /**
      * @return the revision_timestamp
      */
-    public String getRevision_timestamp()
+    public String getRevision_timestamp(  )
     {
         return _strRevisionTimestamp;
     }
@@ -367,7 +366,7 @@ public class PackageShowResult
     /**
      * @param strRevisionTimestamp the revision_timestamp to set
      */
-    public void setRevision_timestamp(String strRevisionTimestamp)
+    public void setRevision_timestamp( String strRevisionTimestamp )
     {
         _strRevisionTimestamp = strRevisionTimestamp;
     }
@@ -375,7 +374,7 @@ public class PackageShowResult
     /**
      * @return the tags
      */
-    public List<PackageTag> getTags()
+    public List<PackageTag> getTags(  )
     {
         return _listTags;
     }
@@ -383,7 +382,7 @@ public class PackageShowResult
     /**
      * @param tags the tags to set
      */
-    public void setTags(List<PackageTag> tags)
+    public void setTags( List<PackageTag> tags )
     {
         _listTags = tags;
     }
@@ -391,7 +390,7 @@ public class PackageShowResult
     /**
      * @return the num_tags
      */
-    public int getNum_tags()
+    public int getNum_tags(  )
     {
         return _nNumTags;
     }
@@ -399,7 +398,7 @@ public class PackageShowResult
     /**
      * @param nNumTags the num_tags to set
      */
-    public void setNum_tags(int nNumTags)
+    public void setNum_tags( int nNumTags )
     {
         _nNumTags = nNumTags;
     }
@@ -407,7 +406,7 @@ public class PackageShowResult
     /**
      * @return the license_title
      */
-    public String getLicense_title()
+    public String getLicense_title(  )
     {
         return _strLicenseTitle;
     }
@@ -415,7 +414,7 @@ public class PackageShowResult
     /**
      * @param strLicenseTitle the license_title to set
      */
-    public void setLicense_title(String strLicenseTitle)
+    public void setLicense_title( String strLicenseTitle )
     {
         _strLicenseTitle = strLicenseTitle;
     }
@@ -423,7 +422,7 @@ public class PackageShowResult
     /**
      * @return the license_id
      */
-    public String getLicense_id()
+    public String getLicense_id(  )
     {
         return _strLicenseId;
     }
@@ -431,7 +430,7 @@ public class PackageShowResult
     /**
      * @param strLicenseId the license_id to set
      */
-    public void setLicense_id(String strLicenseId)
+    public void setLicense_id( String strLicenseId )
     {
         _strLicenseId = strLicenseId;
     }
@@ -439,7 +438,7 @@ public class PackageShowResult
     /**
      * @return the _private
      */
-    public boolean isPrivate()
+    public boolean isPrivate(  )
     {
         return _bPrivate;
     }
@@ -447,7 +446,7 @@ public class PackageShowResult
     /**
      * @param bPrivate the _private to set
      */
-    public void setPrivate(boolean bPrivate)
+    public void setPrivate( boolean bPrivate )
     {
         _bPrivate = bPrivate;
     }

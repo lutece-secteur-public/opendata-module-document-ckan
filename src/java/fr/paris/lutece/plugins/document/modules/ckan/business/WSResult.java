@@ -37,7 +37,7 @@ package fr.paris.lutece.plugins.document.modules.ckan.business;
 /**
  * WSResult
  */
-public abstract class WSResult <T> extends WSBase
+public abstract class WSResult<T> extends WSBase
 {
     private T _result;
 

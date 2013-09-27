@@ -34,13 +34,15 @@
 package fr.paris.lutece.plugins.document.modules.ckan.rs;
 
 import com.sun.jersey.api.Responses;
+
 import fr.paris.lutece.plugins.document.modules.ckan.business.WSBase;
 import fr.paris.lutece.plugins.document.modules.ckan.service.MapperService;
 import fr.paris.lutece.plugins.document.modules.ckan.service.PackageServiceV3;
 import fr.paris.lutece.plugins.rest.service.RestConstants;
 
-import org.xml.sax.SAXException;
+import org.apache.log4j.Logger;
 
+import org.xml.sax.SAXException;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -49,7 +51,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
-import org.apache.log4j.Logger;
 
 
 /**
@@ -59,7 +60,6 @@ import org.apache.log4j.Logger;
 public class CkanRest
 {
     private static final int VERSION_3 = 3;
-    
     private Logger _logger = Logger.getLogger( RestConstants.REST_LOGGER );
 
     /**
@@ -70,31 +70,32 @@ public class CkanRest
     @GET
     @Path( Constants.PATH_GET_PACKAGE_LIST )
     @Produces( MediaType.APPLICATION_JSON )
-    public String getPackageList( @PathParam("version") int nVersion )
+    public String getPackageList( @PathParam( "version" )
+    int nVersion )
     {
-        _logger.debug( "getPackageList - api version " + nVersion  );
-        
-        switch( nVersion )
+        _logger.debug( "getPackageList - api version " + nVersion );
+
+        switch ( nVersion )
         {
             case VERSION_3:
-                return getPackageListV3();
-                
+                return getPackageListV3(  );
+
             default:
                 break;
         }
-        throw new WebApplicationException(Responses.NOT_FOUND);
-        
+
+        throw new WebApplicationException( Responses.NOT_FOUND );
     }
 
     /**
      * Get package list for the API version 3
      * @return the list in JSON format
      */
-    private String getPackageListV3()
+    private String getPackageListV3(  )
     {
         WSBase response = PackageServiceV3.getPackageList(  );
 
-        return MapperService.getJson( response );    
+        return MapperService.getJson( response );
     }
 
     /**
@@ -107,32 +108,35 @@ public class CkanRest
     @GET
     @Path( Constants.PATH_GET_PACKAGE_SHOW )
     @Produces( MediaType.APPLICATION_JSON )
-    public String getPackageShow( @PathParam("version") int nVersion , @QueryParam( Constants.PARAMETER_ID )
+    public String getPackageShow( @PathParam( "version" )
+    int nVersion, @QueryParam( Constants.PARAMETER_ID )
     String strIdPackage ) throws SAXException
     {
-        _logger.debug( "getPackageShow - api version " + nVersion  );
-        
-        switch( nVersion )
+        _logger.debug( "getPackageShow - api version " + nVersion );
+
+        switch ( nVersion )
         {
             case VERSION_3:
                 return getPackageShowV3( strIdPackage );
-                
+
             default:
                 break;
         }
-        throw new WebApplicationException(Responses.NOT_FOUND);
-     
+
+        throw new WebApplicationException( Responses.NOT_FOUND );
     }
-    
+
     /**
      * Get a given package for the API version 3
      * @param strIdPackage The package ID
      * @return The package data in JSON format
      * @throws SAXException If an error occurs
      */
-    private String getPackageShowV3( String strIdPackage ) throws SAXException
+    private String getPackageShowV3( String strIdPackage )
+        throws SAXException
     {
         _logger.debug( "getPackageShowV3" );
+
         String strId = strIdPackage;
         int nPos = strIdPackage.indexOf( "-" );
 
@@ -140,10 +144,9 @@ public class CkanRest
         {
             strId = strIdPackage.substring( 0, nPos );
         }
-        
+
         WSBase response = PackageServiceV3.getPackageShow( strId );
 
         return MapperService.getJson( response );
     }
-
-}    
+}

@@ -71,7 +71,6 @@ import javax.xml.parsers.ParserConfigurationException;
 public class DocumentParser
 {
     private static final String TIMESTAMP_DEFAULT = "2000-01-01T00:00:00.000000";
-    
     private static CkanService _service = SpringContextService.getBean( "document-ckan.ckanService" );
     private static SimpleDateFormat _dateFormaterInput = new SimpleDateFormat( "dd/MM/yyyy" );
     private static SimpleDateFormat _dateFormaterOutput = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ss.SSS" );
@@ -105,16 +104,20 @@ public class DocumentParser
             psr.setMaintainer( getValue( doc, "maintainer" ) );
             psr.setNotes( getValue( doc, "notes" ) );
             psr.setType( getValue( doc, "type" ) );
-            psr.setUrl( MessageFormat.format( _service.getDatasetUrlFormat(), strId, nPortletId ) );
+            psr.setUrl( MessageFormat.format( _service.getDatasetUrlFormat(  ), strId, nPortletId ) );
             psr.setLicense_id( getValue( doc, "license-id" ) );
-            psr.setLicense_title(getValue( doc, "license-title" ) );
-            String strMetadataCreated = convertDateToTimestamp( getValue( doc, "metadata-created" ) , TIMESTAMP_DEFAULT );
-            psr.setMetadata_created(  strMetadataCreated );
-            String strMetadataModified = convertDateToTimestamp( getValue( doc, "metadata-modified" ) , strMetadataCreated );
+            psr.setLicense_title( getValue( doc, "license-title" ) );
+
+            String strMetadataCreated = convertDateToTimestamp( getValue( doc, "metadata-created" ), TIMESTAMP_DEFAULT );
+            psr.setMetadata_created( strMetadataCreated );
+
+            String strMetadataModified = convertDateToTimestamp( getValue( doc, "metadata-modified" ),
+                    strMetadataCreated );
             psr.setMetadata_modified( strMetadataModified );
             psr.setRevision_id( getValue( doc, "revision-id" ) );
-            psr.setRevision_timestamp( convertDateToTimestamp( getValue( doc, "revision-timestamp" ) , strMetadataModified ) );
-            
+            psr.setRevision_timestamp( convertDateToTimestamp( getValue( doc, "revision-timestamp" ),
+                    strMetadataModified ) );
+
             // Organization parsing
             PackageOrganization po = new PackageOrganization(  );
             po.setId( getValue( doc, "organization-id" ) );
@@ -142,34 +145,35 @@ public class DocumentParser
                 {
                     PackageResource pr = new PackageResource(  );
                     pr.setFormat( strFormat );
-                    pr.setDescription(strTitle);
+                    pr.setDescription( strTitle );
                     pr.setLast_modified( strMetadataModified );
-                    pr.setRevision_id( getValue( doc, "resource-revision-id" ));
+                    pr.setRevision_id( getValue( doc, "resource-revision-id" ) );
                     fillResourceInfos( pr, doc, "resource-file-" + i, strMetadataCreated );
                     listResources.add( pr );
                 }
             }
 
             psr.setResources( listResources );
-            psr.setNum_resources( listResources.size() );
-            
+            psr.setNum_resources( listResources.size(  ) );
+
             // Tags parsing
-            List<PackageTag> listTags = new ArrayList<PackageTag>();
+            List<PackageTag> listTags = new ArrayList<PackageTag>(  );
             String strTags = getValue( doc, "tags" );
             StringTokenizer st = new StringTokenizer( strTags );
-            while( st.hasMoreTokens() )
+
+            while ( st.hasMoreTokens(  ) )
             {
-                PackageTag tag = new PackageTag();
-                String strName = st.nextToken();
+                PackageTag tag = new PackageTag(  );
+                String strName = st.nextToken(  );
                 tag.setName( strName );
                 tag.setDisplay_name( strName );
                 tag.setRevision_timestamp( strMetadataModified );
-                tag.setState( getValue( doc, "tag-state" ));
+                tag.setState( getValue( doc, "tag-state" ) );
                 listTags.add( tag );
             }
+
             psr.setTags( listTags );
-            psr.setNum_tags( listTags.size() );
-            
+            psr.setNum_tags( listTags.size(  ) );
         }
         catch ( IOException e )
         {
@@ -227,7 +231,7 @@ public class DocumentParser
     }
 
     /**
-     * Recursive method to find useful tags  
+     * Recursive method to find useful tags
      * @param pr The PackageResource
      * @param nList The node list
      * @param strCreated Creation Timestamp
@@ -270,7 +274,7 @@ public class DocumentParser
         {
             pr.setUrl( MessageFormat.format( _service.getResourceUrlFormat(  ), strId, strAttributeId ) );
             pr.setResource_type( "file" );
-            pr.setId( formatResourceId( strId , strAttributeId ));
+            pr.setId( formatResourceId( strId, strAttributeId ) );
             pr.setCreated( strCreated );
         }
     }
@@ -283,7 +287,7 @@ public class DocumentParser
      */
     private static String formatName( String strId, String strTitle )
     {
-        return ( strId + "-" + StringUtil.replaceAccent( strTitle ).replace( " ", "_" ).toLowerCase(  ));
+        return ( strId + "-" + StringUtil.replaceAccent( strTitle ).replace( " ", "_" ).toLowerCase(  ) );
     }
 
     /**
@@ -292,18 +296,20 @@ public class DocumentParser
      * @param strDefault The default value if the conversion failed
      * @return The timestamp
      */
-    private static String convertDateToTimestamp( String strDate , String strDefault ) 
+    private static String convertDateToTimestamp( String strDate, String strDefault )
     {
         String strTimestamp = strDefault;
+
         try
         {
-            Date date = _dateFormaterInput.parse(strDate);
-            strTimestamp = _dateFormaterOutput.format(date);
+            Date date = _dateFormaterInput.parse( strDate );
+            strTimestamp = _dateFormaterOutput.format( date );
         }
-        catch (ParseException e)
+        catch ( ParseException e )
         {
-             AppLogService.error( "Error parsing document : " + e.getMessage(  ), e );
+            AppLogService.error( "Error parsing document : " + e.getMessage(  ), e );
         }
+
         return strTimestamp;
     }
 
@@ -313,7 +319,7 @@ public class DocumentParser
      * @param strAttributeId the resource id
      * @return The ID
      */
-    private static String formatResourceId(String strId, String strAttributeId)
+    private static String formatResourceId( String strId, String strAttributeId )
     {
         return strId + ":" + strAttributeId;
     }

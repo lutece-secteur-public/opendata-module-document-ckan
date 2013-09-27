@@ -31,8 +31,8 @@
  *
  * License 1.0
  */
-
 package fr.paris.lutece.plugins.document.modules.ckan.business;
+
 
 /**
  * WS Error
@@ -43,7 +43,6 @@ public class WSError extends WSBase
     public static final String MESSAGE_INVALID = "Invalid parameter value";
     public static final String TYPE_NOT_FOUND = "Not found error";
     public static final String TYPE_INVALID = "Validation error";
-    
     private Error _error;
 
     /**
@@ -52,17 +51,17 @@ public class WSError extends WSBase
      * @param strType The type
      * @param strHelp The help text
      */
-    public WSError( String strMessage , String strType , String strHelp )
+    public WSError( String strMessage, String strType, String strHelp )
     {
-        _error = new Error( strMessage , strType );
+        _error = new Error( strMessage, strType );
         setSuccess( false );
         setHelp( strHelp );
     }
-    
+
     /**
      * @return the error
      */
-    public Error getError()
+    public Error getError(  )
     {
         return _error;
     }
@@ -70,9 +69,8 @@ public class WSError extends WSBase
     /**
      * @param error the error to set
      */
-    public void setError(Error error)
+    public void setError( Error error )
     {
         this._error = error;
     }
-    
 }

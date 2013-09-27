@@ -57,7 +57,7 @@ public class DocumentParserTest extends LuteceTestCase
         System.out.println( "parse" );
 
         PackageShowResult psr = new PackageShowResult(  );
-        PackageShowResult result = DocumentParser.parse( psr , TestUtils.getFile( "document.xml" ), 1 );
+        PackageShowResult result = DocumentParser.parse( psr, TestUtils.getFile( "document.xml" ), 1 );
         System.out.println( result.getId(  ) );
         System.out.println( result.getTitle(  ) );
         System.out.println( result.getAuthor(  ) );

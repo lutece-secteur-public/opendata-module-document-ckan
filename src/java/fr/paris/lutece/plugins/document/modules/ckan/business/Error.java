@@ -31,8 +31,8 @@
  *
  * License 1.0
  */
-
 package fr.paris.lutece.plugins.document.modules.ckan.business;
+
 
 /**
  * Error
@@ -42,16 +42,16 @@ public class Error
     private String _strMessage;
     private String _strType;
 
-    public Error( String strMessage , String strType )
+    public Error( String strMessage, String strType )
     {
         _strMessage = strMessage;
         _strType = strType;
     }
-    
+
     /**
      * @return the message
      */
-    public String getMessage()
+    public String getMessage(  )
     {
         return _strMessage;
     }
@@ -59,7 +59,7 @@ public class Error
     /**
      * @param strMessage the message to set
      */
-    public void setMessage(String strMessage)
+    public void setMessage( String strMessage )
     {
         _strMessage = strMessage;
     }
@@ -67,7 +67,7 @@ public class Error
     /**
      * @return the __type
      */
-    public String get__type()
+    public String get__type(  )
     {
         return _strType;
     }
@@ -75,7 +75,7 @@ public class Error
     /**
      * @param strType the __type to set
      */
-    public void set__type(String strType)
+    public void set__type( String strType )
     {
         _strType = strType;
     }

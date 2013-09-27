@@ -47,7 +47,6 @@ import java.util.Map;
 public class CkanService
 {
     public static final String NOT_FOUND = "not found";
-
     private static final String PROPERTY_DATASET_URL_FORMAT = "document-ckan.datasetUrlFormat";
     private static final String PROPERTY_RESOURCE_URL_FORMAT = "document-ckan.resourceUrlFormat";
     private Map<String, String> _mappings;
@@ -55,16 +54,16 @@ public class CkanService
 
     /**
      * Sets the mappings (injected)
-     * @param mappings 
+     * @param mappings
      */
     public void setMappings( Map mappings )
     {
         _mappings = mappings;
     }
-    
+
     /**
      * Sets defaults (injected)
-     * @param defaults 
+     * @param defaults
      */
     public void setDefaults( Map defaults )
     {
@@ -73,7 +72,7 @@ public class CkanService
 
     /**
      * Return the dataset URL format
-     * @return the dataset URL format 
+     * @return the dataset URL format
      */
     public String getDatasetUrlFormat(  )
     {
@@ -82,7 +81,7 @@ public class CkanService
 
     /**
      * Return the resource URL format
-     * @return the resource URL format 
+     * @return the resource URL format
      */
     public String getResourceUrlFormat(  )
     {
@@ -134,7 +133,7 @@ public class CkanService
      */
     public static String getNameId( Document doc )
     {
-        String strID = "" + doc.getId(  ) + "-" + doc.getTitle();
+        String strID = "" + doc.getId(  ) + "-" + doc.getTitle(  );
         strID = StringUtil.replaceAccent( strID );
 
         return strID.replace( " ", "_" );

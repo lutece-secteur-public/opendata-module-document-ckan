@@ -4,12 +4,12 @@
  */
 package fr.paris.lutece.plugins.document.modules.ckan.business;
 
+
 /**
  * WSBase
  */
 public abstract class WSBase
 {
-    
     private String _strHelp;
     private boolean _bSuccess = true;
 
@@ -44,5 +44,4 @@ public abstract class WSBase
     {
         _bSuccess = bSuccess;
     }
-    
 }

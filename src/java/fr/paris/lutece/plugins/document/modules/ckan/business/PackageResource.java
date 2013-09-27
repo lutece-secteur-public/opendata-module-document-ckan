@@ -49,7 +49,6 @@ public class PackageResource
     private String _strSize;
     private String _strId;
     private String _strRevisionId;
-    
 
     /**
      * @return the description
@@ -182,7 +181,7 @@ public class PackageResource
     /**
      * @return the revision_id
      */
-    public String getRevision_id()
+    public String getRevision_id(  )
     {
         return _strRevisionId;
     }
@@ -190,7 +189,7 @@ public class PackageResource
     /**
      * @param strRevisionId the revision_id to set
      */
-    public void setRevision_id(String strRevisionId)
+    public void setRevision_id( String strRevisionId )
     {
         _strRevisionId = strRevisionId;
     }
@@ -198,7 +197,7 @@ public class PackageResource
     /**
      * @return the id
      */
-    public String getId()
+    public String getId(  )
     {
         return _strId;
     }
@@ -206,10 +205,8 @@ public class PackageResource
     /**
      * @param id the id to set
      */
-    public void setId(String id)
+    public void setId( String id )
     {
         this._strId = id;
     }
-
-
 }

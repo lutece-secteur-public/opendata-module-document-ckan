@@ -36,16 +36,19 @@ package fr.paris.lutece.plugins.document.modules.ckan.service;
 import fr.paris.lutece.plugins.document.business.Document;
 import fr.paris.lutece.plugins.document.business.DocumentHome;
 import fr.paris.lutece.plugins.document.business.portlet.DocumentPortletHome;
-import fr.paris.lutece.plugins.document.modules.ckan.business.WSPackageList;
-import fr.paris.lutece.plugins.document.modules.ckan.business.WSPackageShow;
 import fr.paris.lutece.plugins.document.modules.ckan.business.PackageShowResult;
 import fr.paris.lutece.plugins.document.modules.ckan.business.WSBase;
 import fr.paris.lutece.plugins.document.modules.ckan.business.WSError;
+import fr.paris.lutece.plugins.document.modules.ckan.business.WSPackageList;
+import fr.paris.lutece.plugins.document.modules.ckan.business.WSPackageShow;
 import fr.paris.lutece.plugins.document.modules.ckan.business.WSResult;
 import fr.paris.lutece.portal.service.util.AppPropertiesService;
+
+import org.xml.sax.SAXException;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.xml.sax.SAXException;
+
 
 /**
  * PackageServiceV3
@@ -60,7 +63,7 @@ public class PackageServiceV3
      * Get the package list
      * @return The package list
      */
-    public static WSBase getPackageList()
+    public static WSBase getPackageList(  )
     {
         WSPackageList pl = new WSPackageList(  );
         pl.setHelp( AppPropertiesService.getProperty( PROPERTY_HELP_PACKAGE_LIST ) );
@@ -75,44 +78,51 @@ public class PackageServiceV3
         }
 
         pl.setResult( listResults );
+
         return pl;
     }
 
     /**
-     * 
+     *
      * @param strId
      * @return
      * @throws SAXException If a parsing error occurs
      */
-    public static WSBase getPackageShow(String strId) throws SAXException
+    public static WSBase getPackageShow( String strId )
+        throws SAXException
     {
         String strHelp = AppPropertiesService.getProperty( PROPERTY_HELP_PACKAGE_SHOW );
         Document doc;
+
         try
         {
-        doc = DocumentHome.findByPrimaryKey( Integer.parseInt( strId ) );
+            doc = DocumentHome.findByPrimaryKey( Integer.parseInt( strId ) );
         }
-        catch( NumberFormatException e )
+        catch ( NumberFormatException e )
         {
-            return new WSError( WSError.MESSAGE_INVALID, WSError.TYPE_INVALID, strHelp);
+            return new WSError( WSError.MESSAGE_INVALID, WSError.TYPE_INVALID, strHelp );
         }
-        if( doc == null )
+
+        if ( doc == null )
         {
-            return new WSError( WSError.MESSAGE_NOT_FOUND, WSError.TYPE_NOT_FOUND, strHelp);
+            return new WSError( WSError.MESSAGE_NOT_FOUND, WSError.TYPE_NOT_FOUND, strHelp );
         }
+
         PackageShowResult psr = new PackageShowResult(  );
-        List<Integer> listPublications = DocumentPortletHome.findPortletForDocument( doc.getId() );
-        if( listPublications.isEmpty() )
+        List<Integer> listPublications = DocumentPortletHome.findPortletForDocument( doc.getId(  ) );
+
+        if ( listPublications.isEmpty(  ) )
         {
             // dataset is not published
-            return new WSError( WSError.MESSAGE_NOT_FOUND, WSError.TYPE_NOT_FOUND, strHelp);
+            return new WSError( WSError.MESSAGE_NOT_FOUND, WSError.TYPE_NOT_FOUND, strHelp );
         }
+
         int nPortletId = listPublications.get( 0 );
         WSResult ps = new WSPackageShow(  );
         ps.setHelp( strHelp );
         psr = DocumentParser.parse( psr, doc.getXmlValidatedContent(  ), nPortletId );
         ps.setResult( psr );
+
         return ps;
     }
-        
 }
