@@ -36,13 +36,14 @@ package fr.paris.lutece.plugins.document.modules.ckan.business;
 
 /**
  * WSResult
+ * @param <T> The result Type
  */
 public abstract class WSResult<T> extends WSBase
 {
     private T _result;
 
     /**
-     * @return the _listResult
+     * @return the result
      */
     public T getResult(  )
     {
@@ -50,7 +51,7 @@ public abstract class WSResult<T> extends WSBase
     }
 
     /**
-     * @param listResult the _listResult to set
+     * @param result the result to set
      */
     public void setResult( T result )
     {

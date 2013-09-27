@@ -54,7 +54,7 @@ public class CkanService
 
     /**
      * Sets the mappings (injected)
-     * @param mappings
+     * @param mappings The mappings map
      */
     public void setMappings( Map mappings )
     {
@@ -63,7 +63,7 @@ public class CkanService
 
     /**
      * Sets defaults (injected)
-     * @param defaults
+     * @param defaults The defaults map
      */
     public void setDefaults( Map defaults )
     {

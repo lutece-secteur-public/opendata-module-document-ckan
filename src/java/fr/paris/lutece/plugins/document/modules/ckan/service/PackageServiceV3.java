@@ -53,12 +53,18 @@ import java.util.List;
 /**
  * PackageServiceV3
  */
-public class PackageServiceV3
+public final class PackageServiceV3
 {
     private static final String PROPERTY_HELP_PACKAGE_LIST = "document-ckan.help.package_list";
     private static final String PROPERTY_HELP_PACKAGE_SHOW = "document-ckan.help.package_show";
     private static final String PROPERTY_DATASET_SPACE_ID = "document-ckan.datasetSpaceId";
 
+    /** Private constructor */
+    private PackageServiceV3(  )
+    {
+        
+    }
+    
     /**
      * Get the package list
      * @return The package list
@@ -83,9 +89,9 @@ public class PackageServiceV3
     }
 
     /**
-     *
-     * @param strId
-     * @return
+     * Returns the Package Show response
+     * @param strId The dataset ID
+     * @return The Package Show response
      * @throws SAXException If a parsing error occurs
      */
     public static WSBase getPackageShow( String strId )

@@ -68,17 +68,23 @@ import javax.xml.parsers.ParserConfigurationException;
 /**
  * DocumentParser
  */
-public class DocumentParser
+public final class DocumentParser
 {
     private static final String TIMESTAMP_DEFAULT = "2000-01-01T00:00:00.000000";
     private static CkanService _service = SpringContextService.getBean( "document-ckan.ckanService" );
     private static SimpleDateFormat _dateFormaterInput = new SimpleDateFormat( "dd/MM/yyyy" );
     private static SimpleDateFormat _dateFormaterOutput = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ss.SSS" );
 
+    /** Private constructor */
+    private DocumentParser(  )
+    {
+    }
+
     /**
      * Parse the XML content of a document
      * @param strXml The XML
      * @param psr The PackageShowResult
+     * @param nPortletId The portlet ID
      * @return the fulfilled PackageShowResult
      * @throws SAXException if an error occurs
      */
