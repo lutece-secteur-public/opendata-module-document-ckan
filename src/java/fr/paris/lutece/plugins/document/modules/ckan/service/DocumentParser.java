@@ -71,9 +71,9 @@ import javax.xml.parsers.ParserConfigurationException;
 public final class DocumentParser
 {
     private static final String TIMESTAMP_DEFAULT = "2000-01-01T00:00:00.000000";
-    private static CkanService _service = SpringContextService.getBean( "document-ckan.ckanService" );
-    private static SimpleDateFormat _dateFormaterInput = new SimpleDateFormat( "dd/MM/yyyy" );
-    private static SimpleDateFormat _dateFormaterOutput = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ss.SSS" );
+    private static final CkanService _service = SpringContextService.getBean( "document-ckan.ckanService" );
+    private static final SimpleDateFormat _dateFormaterInput = new SimpleDateFormat( "dd/MM/yyyy" );
+    private static final SimpleDateFormat _dateFormaterOutput = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ss.SSS" );
 
     /** Private constructor */
     private DocumentParser(  )
@@ -162,6 +162,11 @@ public final class DocumentParser
                     pr.setLast_modified( strMetadataModified );
                     pr.setRevision_id( getValue( doc, "resource-revision-id" ) );
                     fillResourceInfos( pr, doc, "resource-file-" + i, strMetadataCreated );
+                    String strDownloadUrl = getValue( doc, "resource-download-url-" + i );
+                    if( strDownloadUrl.length() > 4 )
+                    {
+                        pr.setUrl( strDownloadUrl );
+                    }
                     listResources.add( pr );
                 }
             }

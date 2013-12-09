@@ -35,6 +35,7 @@ package fr.paris.lutece.plugins.document.modules.ckan.service;
 
 import fr.paris.lutece.plugins.document.modules.ckan.business.PackageShowResult;
 import fr.paris.lutece.test.LuteceTestCase;
+import fr.paris.lutece.test.Utils;
 
 import org.junit.Test;
 
@@ -50,6 +51,8 @@ public class DocumentParserTest extends LuteceTestCase
 {
     /**
      * Test of parse method, of class DocumentParser.
+     * @throws java.io.IOException
+     * @throws org.xml.sax.SAXException
      */
     @Test
     public void testParse(  ) throws IOException, SAXException
@@ -57,7 +60,7 @@ public class DocumentParserTest extends LuteceTestCase
         System.out.println( "parse" );
 
         PackageShowResult psr = new PackageShowResult(  );
-        PackageShowResult result = DocumentParser.parse( psr, TestUtils.getFile( "document.xml" ), 1 );
+        PackageShowResult result = DocumentParser.parse( psr, Utils.getFileContent( "document.xml" ), 1 );
         System.out.println( result.getId(  ) );
         System.out.println( result.getTitle(  ) );
         System.out.println( result.getAuthor(  ) );

@@ -20,6 +20,10 @@
                 <entry key="resource-file-2" value="download-fichier_2" />
                 <entry key="resource-file-3" value="download-fichier_3" />
                 <entry key="resource-file-4" value="download-fichier_4" />
+                <entry key="resource-download-url-1" value="download-url_1" />
+                <entry key="resource-download-url-2" value="download-url_2" />
+                <entry key="resource-download-url-3" value="download-url_3" />
+                <entry key="resource-download-url-4" value="download-url_4" />
                 <entry key="metadata-created" value="download-date_publication" />
                 <entry key="metadata-modified" value="download-date_maj" />
                 <entry key="tags" value="download-tags" />
