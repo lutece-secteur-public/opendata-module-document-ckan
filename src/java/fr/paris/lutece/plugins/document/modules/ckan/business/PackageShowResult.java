@@ -66,6 +66,13 @@ public class PackageShowResult
     private String _strLicenseTitle;
     private String _strLicenseId;
     private boolean _bPrivate;
+    private String _strFrequency;
+    private String _strGroups;
+    private String _strTemporalCoverageFrom;
+    private String _strTemporalCoverageTo;
+    private String _strTerritorialCoverage;
+    private String _strTerritorialCoverageGranularity;
+    
 
     /**
      * @return the id
@@ -450,4 +457,102 @@ public class PackageShowResult
     {
         _bPrivate = bPrivate;
     }
+    
+    /**
+     * @return the frequency
+     */
+    public String getFrequency(  )
+    {
+        return _strFrequency;
+    }
+
+    /**
+     * @param strFrequency the frequency to set
+     */
+    public void setFrequency( String strFrequency )
+    {
+        _strFrequency = strFrequency;
+    }
+
+    /**
+     * @return the groups
+     */
+    public String getGroups(  )
+    {
+        return _strGroups;
+    }
+
+    /**
+     * @param strGroups the groups to set
+     */
+    public void setGroups( String strGroups )
+    {
+        _strGroups = strGroups;
+    }
+    
+    /**
+     * @return Temporal coverage from 
+     */
+    public String getTemporal_coverage_from(  )
+    {
+        return _strTemporalCoverageFrom;
+    }
+
+    /**
+     * @param strTemporalCoverageFrom Temporal coverage from
+     */
+    public void setTemporal_coverage_from( String strTemporalCoverageFrom )
+    {
+        _strTemporalCoverageFrom = strTemporalCoverageFrom;
+    }
+    
+    /**
+     * @return Temporal coverage to 
+     */
+    public String getTemporal_coverage_to(  )
+    {
+        return _strTemporalCoverageTo;
+    }
+
+    /**
+     * @param strTemporalCoverageTo Temporal coverage to
+     */
+    public void setTemporal_coverage_to( String strTemporalCoverageTo )
+    {
+        _strTemporalCoverageTo = strTemporalCoverageTo;
+    }
+    
+    /**
+     * @return the territorial_coverage
+     */
+    public String getTerritorial_coverage(  )
+    {
+        return _strTerritorialCoverage;
+    }
+
+    /**
+     * @param strTerritorialCoverage the territorial_coverage to set
+     */
+    public void setTerritorial_coverage( String strTerritorialCoverage )
+    {
+        _strTerritorialCoverage = strTerritorialCoverage;
+    }
+    
+    /**
+     * @return the territorial_coverage_granularity
+     */
+    public String getTerritorial_coverage_granularity(  )
+    {
+        return _strTerritorialCoverageGranularity;
+    }
+
+    /**
+     * @param strTerritorialCoverageGranularity the territorial_coverage_granularity to set
+     */
+    public void setTerritorial_coverage_granularity( String strTerritorialCoverageGranularity )
+    {
+        _strTerritorialCoverageGranularity = strTerritorialCoverageGranularity;
+    }
+    
+
 }

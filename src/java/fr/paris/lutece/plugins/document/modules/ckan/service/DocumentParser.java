@@ -123,7 +123,14 @@ public final class DocumentParser
             psr.setRevision_id( getValue( doc, "revision-id" ) );
             psr.setRevision_timestamp( convertDateToTimestamp( getValue( doc, "revision-timestamp" ),
                     strMetadataModified ) );
-
+            
+            psr.setGroups( getValue( doc , "groups" ));
+            psr.setFrequency( getValue( doc , "frequency" ));
+            psr.setTemporal_coverage_from( getValue( doc , "temporal-coverage-from" ));
+            psr.setTemporal_coverage_to( getValue( doc , "temporal-coverage-to" ));
+            psr.setTerritorial_coverage( getValue( doc , "territorial-coverage"));
+            psr.setTerritorial_coverage_granularity( getValue( doc , "territorial-coverage-granularity"));
+            
             // Organization parsing
             PackageOrganization po = new PackageOrganization(  );
             po.setId( getValue( doc, "organization-id" ) );

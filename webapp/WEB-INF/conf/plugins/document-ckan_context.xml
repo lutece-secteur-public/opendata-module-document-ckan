@@ -23,6 +23,7 @@
                 <entry key="metadata-created" value="download-date_publication" />
                 <entry key="metadata-modified" value="download-date_maj" />
                 <entry key="tags" value="download-tags" />
+                <entry key="frequency" value="download-frequence_maj" />
             </map>
         </property>
         <property name="defaults">
@@ -49,6 +50,7 @@
                 <entry key="organization-created" value="2013-01-01T00:00:00.000000" />
                 <entry key="resource-revision-id" value="latest" />
                 <entry key="tag-state" value="active" />
+                <entry key="territorial-coverage" value="CommuneOfFrance/75000,DepartmentOfFrance/75" />
             </map>
         </property>
     </bean>
