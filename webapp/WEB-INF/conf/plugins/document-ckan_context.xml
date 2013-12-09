@@ -55,6 +55,7 @@
                 <entry key="resource-revision-id" value="latest" />
                 <entry key="tag-state" value="active" />
                 <entry key="territorial-coverage" value="CommuneOfFrance/75000,DepartmentOfFrance/75" />
+                <entry key="groups" value="Territoires" />
             </map>
         </property>
     </bean>
