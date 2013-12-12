@@ -37,8 +37,7 @@ import java.util.List;
 
 
 /**
- *
- * @author pierre
+ * PackageShowResult
  */
 public class PackageShowResult
 {
@@ -67,7 +66,7 @@ public class PackageShowResult
     private String _strLicenseId;
     private boolean _bPrivate;
     private String _strFrequency;
-    private String _strGroups;
+    private List<String> _listGroups;
     private String _strTemporalCoverageFrom;
     private String _strTemporalCoverageTo;
     private String _strTerritorialCoverage;
@@ -477,17 +476,17 @@ public class PackageShowResult
     /**
      * @return the groups
      */
-    public String getGroups(  )
+    public List<String> getGroups(  )
     {
-        return _strGroups;
+        return _listGroups;
     }
 
     /**
-     * @param strGroups the groups to set
+     * @param listGroups the groups to set
      */
-    public void setGroups( String strGroups )
+    public void setGroups( List<String> listGroups )
     {
-        _strGroups = strGroups;
+        _listGroups = listGroups;
     }
     
     /**

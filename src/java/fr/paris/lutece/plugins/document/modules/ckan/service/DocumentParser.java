@@ -124,7 +124,9 @@ public final class DocumentParser
             psr.setRevision_timestamp( convertDateToTimestamp( getValue( doc, "revision-timestamp" ),
                     strMetadataModified ) );
             
-            psr.setGroups( getValue( doc , "groups" ));
+            List<String> listGroups = new ArrayList<String>();
+            listGroups.add( getValue( doc , "groups" ) );
+            psr.setGroups( listGroups );
             psr.setFrequency( getValue( doc , "frequency" ));
             psr.setTemporal_coverage_from( getValue( doc , "temporal-coverage-from" ));
             psr.setTemporal_coverage_to( getValue( doc , "temporal-coverage-to" ));

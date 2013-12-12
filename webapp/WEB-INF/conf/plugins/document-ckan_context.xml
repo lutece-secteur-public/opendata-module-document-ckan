@@ -28,6 +28,9 @@
                 <entry key="metadata-modified" value="download-date_maj" />
                 <entry key="tags" value="download-tags" />
                 <entry key="frequency" value="download-frequence_maj" />
+                <entry key="temporal-coverage-from" value="download-periode_couverte" />
+                <entry key="temporal-coverage-to" value="download-periode_couverte" />
+                <entry key="territorial-coverage-granularity" value="download-granularite_geo" />
             </map>
         </property>
         <property name="defaults">
