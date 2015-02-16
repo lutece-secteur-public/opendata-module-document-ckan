@@ -32,7 +32,7 @@ In `WEB-INF/conf/plugins/document-ckan_context.xml` you can change:
 Examples of use:
  [http://dev.lutece.paris.fr/incubator/rest/ckan/api/3/action/package_list](http://dev.lutece.paris.fr/incubator/rest/ckan/api/3/action/package_list)  [http://dev.lutece.paris.fr/incubator/rest/ckan/api/3/action/package_show?id=29](http://dev.lutece.paris.fr/incubator/rest/ckan/api/3/action/package_show?id=29) 
 
-[Maven documentation and reports](http://dev.lutece.paris.fr/plugins/module-document-ckan)
+[Maven documentation and reports](http://dev.lutece.paris.fr/plugins/module-document-ckan/)
 
 
 
