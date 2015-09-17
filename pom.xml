@@ -48,9 +48,9 @@
     </dependencies>
 
     <scm>
-        <connection>scm:git:https://github.com/lutece-platform/lutece-document-module-document-ckan.git</connection>
-        <developerConnection>scm:git:https://github.com/lutece-platform/lutece-document-module-document-ckan.git</developerConnection>
-        <url>https://github.com/lutece-platform/lutece-document-module-document-ckan.git</url>
+        <connection>scm:git:https://github.com/lutece-secteur-public/opendata-module-document-ckan.git</connection>
+        <developerConnection>scm:git:https://github.com/lutece-secteur-public/opendata-module-document-ckan.git</developerConnection>
+        <url>https://github.com/lutece-secteur-public/opendata-module-document-ckan.git</url>
       <tag>HEAD</tag>
   </scm>
     
