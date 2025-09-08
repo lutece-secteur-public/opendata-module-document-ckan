@@ -26,13 +26,13 @@
         <dependency>
             <artifactId>plugin-document</artifactId>
             <groupId>fr.paris.lutece.plugins</groupId>
-            <version>[3.0.1-SNAPSHOT,)</version>
+            <version>[3.0.1-SNAPSHOT,5.9.9)</version>
             <type>lutece-plugin</type>
         </dependency>
         <dependency>
             <artifactId>plugin-rest</artifactId>
             <groupId>fr.paris.lutece.plugins</groupId>
-            <version>[1.0.0,)</version>
+            <version>[1.0.0,3.9.9)</version>
             <type>lutece-plugin</type>
         </dependency>
         <dependency>
